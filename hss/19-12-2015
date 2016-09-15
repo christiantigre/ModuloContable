@@ -1,0 +1,294 @@
+2015-12-19 10:46:51 ROOT      INGRESO A DOCUMENTOS                              
+2015-12-19 11:26:11 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 11:26:27 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-19 11:26:28 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 11:26:35 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-19 11:26:39 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 11:26:40 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 11:27:05 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 11:27:44 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 11:27:48 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-19 11:27:53 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-19 11:27:57 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-19 11:27:59 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-19 11:28:03 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-19 11:28:06 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-19 11:28:10 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-19 11:28:15 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-19 11:28:27 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 11:28:30 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 11:28:33 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-19 11:29:16           REGISTRO EL BALANCE INICIAL PERIODO 2015          
+2015-12-19 11:29:28 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-19 11:29:43 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 11:29:45 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 11:29:46 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 11:30:53 ADMIN     IMPRESION ASIENTO 1 F 2015-12-19                  
+2015-12-19 11:33:05 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-19 11:33:09 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 11:33:14 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 11:33:20 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 11:33:22 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 11:33:22 ADMIN     DTLL. MAYORIZACION CTA:1.1.1.4.                   
+2015-12-19 11:33:41 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-19 11:34:17 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-19 11:34:33 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-19 11:34:35 ADMIN     INGRESO AL ESTADO DE RESULTADOS                   
+2015-12-19 11:34:40 ADMIN     IMPRIMIO SITUACION FINAL                          
+2015-12-19 11:34:46 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-19 11:34:50 ADMIN     IMPRIMIO SITUACION FINAL                          
+2015-12-19 11:36:47 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-19 11:36:53 ADMIN     PERIODO CERRADO 2015                              
+2015-12-19 11:36:57 ADMIN     GENERANDO NUEVO BALANCE                           
+2015-12-19 11:37:07 ADMIN     CREO BLCE INICIAL PERIODO 2016                    
+2015-12-19 11:37:10 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 11:39:11 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-19 11:53:28 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 11:53:31 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 11:53:38 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 11:54:53 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 11:56:13 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 11:57:49 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 11:57:54 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 12:02:41 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:03:01 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 12:03:03 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:03:06 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:03:21 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:03:25 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:03:49 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 12:03:52 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:03:58 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:04:01 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:05:02           IMPRESION B INICIAL  F 2015-12-19                 
+2015-12-19 12:05:20 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 12:05:24 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:06:15 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:06:28 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 12:06:30 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:06:32 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:09:28 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:09:35 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:09:45 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:09:51 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:09:55 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:11:00 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:11:08 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:11:11 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:12:18 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 12:12:21 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 12:12:23 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:12:27 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:14:21 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 12:14:25 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:14:37 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:16:05 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 12:16:12 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:16:16 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:21:12           DOCS IMP CATALOGO DE CUENTAS                      
+2015-12-19 12:21:18 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 12:22:57 ADMIN     DOCS IMP MAYOR  F 2015-12-19                      
+2015-12-19 12:23:25 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 12:23:38 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 12:23:55 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 12:24:06 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 13:02:14 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 13:04:55 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 13:04:59 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 13:05:15 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 13:05:37 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 13:06:16 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 13:06:29 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 13:06:35 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:06:39 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 13:06:46 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-19 13:06:49 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:07:03 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 13:07:04 ADMIN     INGRESO AL ESTADO DE RESULTADOS                   
+2015-12-19 13:07:08 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-19 13:09:25 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 13:09:30 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-19 13:09:34 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-19 13:09:38 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:09:48 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 13:10:01 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-19 13:10:14 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:10:58 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:11:04 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:11:11 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:29:20 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:29:31 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-19 13:55:22 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-19 14:15:18 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:17:21 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:17:26           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:17:30 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:17:33 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:17:35 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:19:34 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:19:50 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:20:19 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:20:25 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:20:59 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:21:11 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:21:42 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:21:52 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:21:55 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:23:03 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:24:38 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:25:08 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:25:19 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:28:37 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:29:12 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:29:33 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:31:57 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:32:22 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:32:30 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:32:50 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:33:00 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:33:29 ADMIN     DOCS IMP MAYOR  F 2015-12-19                      
+2015-12-19 14:34:26 ADMIN     DOCS IMP MAYOR  F 2015-12-19                      
+2015-12-19 14:34:39 ADMIN     DOCS IMP MAYOR  F 2015-12-19                      
+2015-12-19 14:35:04           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:35:32           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:36:40 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:36:47           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:37:14           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:37:26           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:38:27 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:38:32           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:38:41           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:38:51           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:40:12 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:40:16           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:40:28           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:41:16 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:41:22           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:41:35           IMPRIMIO BLNCE COMPROB                            
+2015-12-19 14:41:45           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:43:01 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:43:06           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:43:18           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:44:36 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:44:42           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:45:25           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:45:30 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:45:34           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:45:48           IMPRIMIO SITUACION FINAL                          
+2015-12-19 14:45:55           DOCS IMP CATALOGO DE CUENTAS                      
+2015-12-19 14:46:07 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:48:02 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:48:07 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:48:10 ADMIN     IMPRESION B INICIAL 1 F 2015-12-19                
+2015-12-19 14:48:14 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:48:27 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-19 14:48:33 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:48:52 ADMIN     DOCS IMP CATALOGO DE CUENTAS                      
+2015-12-19 14:48:58 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:50:29           INGRESO A HISTORIAL                               
+2015-12-19 14:51:09           INGRESO A HISTORIAL                               
+2015-12-19 14:51:16 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:51:18 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:51:20 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:54:19 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:55:33 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:55:35 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:55:36 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:57:08 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:57:10 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:57:13 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 14:57:32 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:57:35 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 14:57:46 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 14:57:48 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:57:50 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 14:58:22 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 15:02:14 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 15:02:16                                                             
+2015-12-19 15:02:25 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 15:02:27 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 15:02:29                                                             
+2015-12-19 15:02:34 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 15:02:36 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 15:02:37 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 15:04:37 Cerro session
+2015-12-19 15:04:42 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 15:04:46 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 15:04:49 Cerro session
+2015-12-19 15:05:19 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-19 15:05:22 Cerro session
+2015-12-19 15:05:27 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 15:05:29 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:23:06 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:24:24 adminCERRO SESSION
+2015-12-19 17:24:35 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 17:24:47 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-19 17:24:49 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:25:00 adminCERRO SESSION
+2015-12-19 17:25:04           INGRESO A HISTORIAL                               
+2015-12-19 17:25:10 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 17:25:24 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:25:26 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:27:26 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-19 17:27:29 juan CERRO SESSION
+2015-12-19 17:27:35           INGRESO A HISTORIAL                               
+2015-12-19 17:27:42 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 17:27:44 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:27:46 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:29:07 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:29:10 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:29:31 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-19 17:29:33 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-19 17:29:40 JUAN      INGRESO A HISTORIAL                               
+2015-12-19 17:30:01 juan CERRO SESSION
+2015-12-19 17:30:06 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 17:30:10 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:30:12 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:31:40           GUARDO ASS 26                                     
+2015-12-19 17:31:44 JUAN      IMPRESION ASIENTO 26 F 2015-12-19                 
+2015-12-19 17:31:52 JUAN      IMPRESION ASIENTO 26 F 2015-12-19                 
+2015-12-19 17:32:24 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-19 17:32:34 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-19 17:33:09           GUARDO ASS 27                                     
+2015-12-19 17:33:12 ADMIN     IMPRESION ASIENTO 27 F 2015-12-19                 
+2015-12-19 17:33:26 admin CERRO SESSION
+2015-12-19 17:33:39           INGRESO A HISTORIAL                               
+2015-12-19 17:33:46 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 17:33:50 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:33:51 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 17:45:40 admin CERRO SESSION
+2015-12-19 17:59:30 root CERRO SESSION
+2015-12-19 18:00:41 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 18:00:44 admin CERRO SESSION
+2015-12-19 18:00:52 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 18:00:54 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 18:00:56 ADMIN     INGRESO A HISTORIAL                               
+2015-12-19 18:01:57 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:02:05 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:04:58 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:05:04 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:05:43 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:05:49 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:05:51 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:05:53 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:06:09 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:06:10 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:06:14 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:06:29 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:07:00 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:07:45 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:07:49 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:07:52 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:08:28 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:08:28 ADMIN     VISUALIZO HISTORIAL DE FECHA 19-12-2015           
+2015-12-19 18:08:30 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:08:30 ADMIN     VISUALIZO HISTORIAL DE FECHA 19-12-2015           
+2015-12-19 18:08:43 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:08:43 ADMIN     VISUALIZO HISTORIAL DE FECHA 1-12-2015            
+2015-12-19 18:09:01 ADMIN     INGRESO A PANEL HISTORIAL                         
+2015-12-19 18:09:01 ADMIN     VISUALIZO HISTORIAL DE FECHA 19-12-2015           
+2015-12-19 18:12:02 admin CERRO SESSION
+2015-12-19 18:17:12 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 18:18:14 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-19 18:28:19 admin CERRO SESSION
+2015-12-19 18:30:21 ADMIN     ACCESO A PANEL CONTABLE                           

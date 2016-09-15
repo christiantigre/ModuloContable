@@ -1,0 +1,342 @@
+2015-12-18 07:42:09 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 07:42:19 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 07:42:27 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 07:51:36 ADMIN     FINALIZA SESION                                   
+2015-12-18 07:51:49 ADMIN     INICIO DE SESION                                  
+2015-12-18 07:51:50 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 07:53:37 ADMIN     FINALIZA SESION                                   
+2015-12-18 09:03:10 ADMIN     INICIO DE SESION                                  
+2015-12-18 09:03:10 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 09:04:17 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 09:18:21 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 09:21:41 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 09:21:49 ADMIN     FINALIZA SESION                                   
+2015-12-18 09:22:02 ADMIN     INICIO DE SESION                                  
+2015-12-18 09:22:02 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:00:45 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 10:26:08 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:28:31 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:30:52 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:30:54 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:36:22 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:36:25 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:36:43 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 10:53:46 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 11:02:53 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 11:03:01 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 11:04:24 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:06:04 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:12:00 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:12:02 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:13:30 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:14:01 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:16:59 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:20:00 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 11:29:28 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 12:44:47 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 12:45:19           FINALIZA SESION                                   
+2015-12-18 12:45:38           ACCESO A PANEL CONTABLE                           
+2015-12-18 12:45:47 ADMIN     INICIO DE SESION                                  
+2015-12-18 12:45:47 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 12:46:01 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 12:46:30 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 12:47:20 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 12:47:28 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 12:48:04 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 12:48:06 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 13:00:54 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 13:01:39 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 13:02:51 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:02:56 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 13:03:08 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 13:03:12 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 13:03:18 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 13:03:22 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 13:03:24 ADMIN     INGRESO AL ESTADO DE RESULTADOS                   
+2015-12-18 13:03:30 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 13:03:35 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:04:02 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 13:04:06 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:04:08 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 13:04:14 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 13:04:27 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:06:13 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 13:06:15 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 13:06:31 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:08:37 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 13:10:40 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 13:13:41 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:14:46 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:16:11 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:16:15 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:16:26 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:16:29 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:16:37 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:16:42 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:16:52 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:16:55 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 13:17:02 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:18:10 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:18:12 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:18:22           USUARIO AGREGO NUEVA CLASE                        
+2015-12-18 13:18:47 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:21:06 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:22:23 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:22:25 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:22:29 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:23:16 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:19 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:23:22 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:23 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:23:26 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:32 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:23:36 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:38 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:23:40 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:43 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:23:45 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:23:47 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:23:49 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:23:50 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:23:52 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:23:54 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:23:58 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:24:06 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:24:10 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:24:19 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:24:27 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:24:35 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:24:38 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:24:49 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:24:54 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:24:58 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:00 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:25:05 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:07 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:25:11 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:13 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:15 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:18 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:19 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:25:23 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:25 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:27 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:25:33 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:35 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:25:36 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:38 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:25:39 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:41 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:25:43 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:45 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:25:47 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:49 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:25:51 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:25:53 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:25:58 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:26:01 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:26:03 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:26:04 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:26:06 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:26:07 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:26:09 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:26:19 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:26:21 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:26:32 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:26:39 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:26:41 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:26:50 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:27:01 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:27:05 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:27:07 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:27:09 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 13:27:14 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:27:20 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:27:23 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:27:24 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 13:27:27 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:27:29 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:27:31 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:27:33 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:27:35 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 13:27:40 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:27:47 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 13:27:49 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 13:28:08 ADMIN     ACCESO A PANEL DE CUENTAS AUXILIARES              
+2015-12-18 13:28:15 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 13:47:25 ROOT      ACCESO A PANEL CONTABLE                           
+2015-12-18 14:44:16 MEL       ACCESO A PANEL CONTABLE                           
+2015-12-18 15:00:58 MEL       ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:01:04 MEL       INGRESO A DOCUMENTOS                              
+2015-12-18 15:01:15 MEL       ACCESO A PANEL CONTABLE                           
+2015-12-18 15:02:50 MEL       INGRESO A DOCUMENTOS                              
+2015-12-18 15:03:12 MEL       INGRESO A DOCUMENTOS                              
+2015-12-18 15:03:18 MEL       ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:05:06 MEL       ACCESO A PANEL CONTABLE                           
+2015-12-18 15:05:11 MEL       ACCESO A PANEL CONTABLE                           
+2015-12-18 15:05:17 MEL       INGRESO A DOCUMENTOS                              
+2015-12-18 15:05:24 MEL       ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:05:27 MEL       ACCESO A PANEL CONTABLE                           
+2015-12-18 15:05:36 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:06:43 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:06:45 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:06:54 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 15:06:59 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 15:07:02 ADMIN     ACCESO A PANEL DE CLASES                          
+2015-12-18 15:07:05 ADMIN     ACCESO A PANEL DE GRUPOS                          
+2015-12-18 15:07:08 ADMIN     ACCESO A PANEL DE CUENTAS                         
+2015-12-18 15:07:11 ADMIN     ACCESO A PANEL DE SUB-CUENTAS                     
+2015-12-18 15:07:14 ADMIN     ACCESO A PANEL DE CUENTAS SUB-AUXILIARES          
+2015-12-18 15:07:19 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:07:30 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:07:34 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:07:37 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:07:52 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:07:54 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:07:57 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:08:04 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:10:27 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:10:33 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:11:31 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:11:45 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:11:50 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:12:07 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:12:14 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:12:17 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 15:12:58 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 15:13:01 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:13:11 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:13:37 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:13:41 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:13:46 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:13:51 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:24:46 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:24:51 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:24:53 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:24:55 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:25:01 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:25:05 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:25:46 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 15:26:13 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 15:39:37 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 15:39:46 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 15:39:50 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:39:55 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:39:57 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:40:01 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:40:03 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 15:40:11 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 15:40:13 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:40:14 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:40:17 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:40:20 ADMIN     INGRESO AL ESTADO DE RESULTADOS                   
+2015-12-18 15:40:24 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 15:40:27 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:41:08 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:41:12 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:41:14 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:43:30 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-18 15:51:24 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-18 15:52:23 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-18 15:53:43           IMPRESION ASIENTO  F 2015-12-18                   
+2015-12-18 15:53:48           IMPRESION ASIENTO  F 2015-12-18                   
+2015-12-18 15:55:09 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-18 15:55:15 ADMIN     IMPRESION ASIENTO 1 F 2015-12-18                  
+2015-12-18 15:55:29 ADMIN     DETALLE DE ASIENTO 4                              
+2015-12-18 15:55:40 ADMIN     DETALLE DE ASIENTO 4                              
+2015-12-18 15:56:04 ADMIN     DETALLE DE ASIENTO 4                              
+2015-12-18 15:56:13 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:56:17 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 15:56:22 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:56:30 ADMIN     IMPRESION ASIENTO 4 F 2015-12-18                  
+2015-12-18 15:56:38 ADMIN     EXPORTO LIBRO DIARIO                              
+2015-12-18 15:56:53 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 15:57:01 ADMIN     IMPRESION ASIENTO 1 F 2015-12-18                  
+2015-12-18 15:57:07 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:57:11 ADMIN     DETALLE DE ASIENTO 2                              
+2015-12-18 15:57:14 ADMIN     IMPRESION ASIENTO 2 F 2015-12-18                  
+2015-12-18 15:57:44 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:57:48 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:57:54 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:57:59 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:58:03 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:58:08 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:58:11 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:58:15 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 15:58:21 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 15:58:25 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:58:29 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 15:58:35 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:58:38 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:58:48 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:58:52 ADMIN     DETALLE DE ASIENTO 2                              
+2015-12-18 15:59:13 ADMIN     DETALLE DE ASIENTO 2                              
+2015-12-18 15:59:21 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:59:24 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 15:59:49 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 15:59:50 ADMIN     INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 15:59:54 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 16:00:02 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 16:00:16 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:00:52 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:01:17 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:01:21 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 16:01:22 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:01:51 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:01:53 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:02:08 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 16:02:35 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:02:38 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 16:02:41 ADMIN     INGRESO A MAYORIZACION                            
+2015-12-18 16:02:41 ADMIN     DTLL. MAYORIZACION CTA:1.1.1.4.                   
+2015-12-18 16:02:47 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 16:03:01 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:03:03 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:03:30 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:03:35 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 16:03:55 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:03:58 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 16:04:01 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 16:04:05 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:04:10 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:04:32 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:04:38 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:04:44 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 16:05:02 ADMIN     INGRESO A SITUACION FINAL                         
+2015-12-18 16:05:06 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:05:13 ADMIN     ACCESO A CATALOGO DE CUENTAS                      
+2015-12-18 16:05:19 ADMIN     INGRESO A DOCUMENTOS                              
+2015-12-18 16:06:47 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:06:58 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:07:06 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:55:53 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:58:23 ADMIN     INGRESO A ASIENTOS DE AJUSTES                     
+2015-12-18 16:58:35 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 16:58:43 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 17:00:25 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 17:00:46 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 17:00:52 ADMIN     INGRESO A HISTORIAL                               
+2015-12-18 17:08:42 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 17:21:29 ADMIN     INGRESO A CONTABILIDAD                            
+2015-12-18 18:26:09 ADMIN     INGRESO EN BALANCE INICIAL                        
+2015-12-18 18:36:44 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-18 19:11:01 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-18 19:11:38 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:11:41 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-18 19:11:43 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:11:44 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-18 19:11:46 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:12:36           GUARDO ASS 24                                     
+2015-12-18 19:12:41 JUAN      IMPRESION ASIENTO 24 F 2015-12-18                 
+2015-12-18 19:13:05 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-18 19:13:35           INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:13:52           INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:14:17           INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:15:32           INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:15:39 JUAN      INGRESO A CONTABILIDAD                            
+2015-12-18 19:15:42 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:16:30           GUARDO ASS 25                                     
+2015-12-18 19:16:32 JUAN      INGRESO EN REGISTRO DE ASIENTOS                   
+2015-12-18 19:19:24           ACCESO A PANEL CONTABLE                           
+2015-12-18 19:38:29 ROOT      ACCESO A PANEL CONTABLE                           
+2015-12-18 19:38:56 ROOT      INGRESO A CONTABILIDAD                            

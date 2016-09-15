@@ -1,0 +1,54 @@
+2015-12-17 15:36:03 ADMIN     FINALIZA SESION                                   
+2015-12-17 15:36:21 SUPADMIN  INICIO DE SESION                                  
+2015-12-17 15:39:25 SUPADMIN  FINALIZA SESION                                   
+2015-12-17 15:39:32 OTRO      INICIO DE SESION                                  
+2015-12-17 15:39:32 OTRO      ACCESO A PANEL CONTABLE                           
+2015-12-17 15:42:56 OTRO      FINALIZA SESION                                   
+2015-12-17 15:43:02 OTRO      INICIO DE SESION                                  
+2015-12-17 15:43:02 OTRO      ACCESO A PANEL CONTABLE                           
+2015-12-17 15:43:07 OTRO      FINALIZA SESION                                   
+2015-12-17 15:43:13 ADMIN     INICIO DE SESION                                  
+2015-12-17 15:43:13 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 15:44:11 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 15:44:13 ADMIN     INGRESO A HISTORIAL                               
+2015-12-17 15:44:16 ADMIN     INGRESO A HISTORIAL                               
+2015-12-17 15:44:42 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 15:56:24 ADMIN     FINALIZA SESION                                   
+2015-12-17 17:59:47 SUPADMIN  ERROR AL INICIAR SESION                           
+2015-12-17 17:59:56 SUPADMIN  INICIO DE SESION                                  
+2015-12-17 18:36:11 SUPADMIN  GENERANDO NUEVO BALANCE                           
+2015-12-17 18:36:33 SUPADMIN  INGRESO A SITUACION FINAL                         
+2015-12-17 19:43:39 ULTIMONOM AGREGO USUARIO                                    
+2015-12-17 19:43:39 ULTIMONOM AGREGO USUARIO                                    
+2015-12-17 19:46:49 Q         AGREGO USUARIO                                    
+2015-12-17 20:12:18 AA        AGREGO USUARIO                                    
+2015-12-17 20:13:03 AA        AGREGO USUARIO                                    
+2015-12-17 20:13:03 AA        AGREGO USUARIO                                    
+2015-12-17 20:13:09 AA        AGREGO USUARIO                                    
+2015-12-17 20:13:09 AA        AGREGO USUARIO                                    
+2015-12-17 20:13:09 AA        AGREGO USUARIO                                    
+2015-12-17 20:15:03 AA        AGREGO USUARIO                                    
+2015-12-17 20:15:03 AA        AGREGO USUARIO                                    
+2015-12-17 20:15:03 AA        AGREGO USUARIO                                    
+2015-12-17 20:15:03 AA        AGREGO USUARIO                                    
+2015-12-17 21:22:25 SUPADMIN  FINALIZA SESION                                   
+2015-12-17 21:22:40 ROOT      INICIO DE SESION                                  
+2015-12-17 22:00:53 ROOT      FINALIZA SESION                                   
+2015-12-17 22:01:02 RENATA    INICIO DE SESION                                  
+2015-12-17 22:01:03 RENATA    INGRESO A CONTABILIDAD                            
+2015-12-17 22:01:59 RENATA    FINALIZA SESION                                   
+2015-12-17 22:02:11 ROOT      INICIO DE SESION                                  
+2015-12-17 22:08:49 ROOT      FINALIZA SESION                                   
+2015-12-17 22:09:01 ROOT      ERROR AL INICIAR SESION                           
+2015-12-17 22:09:12 ROOT      INICIO DE SESION                                  
+2015-12-17 22:10:09 ROOT      FINALIZA SESION                                   
+2015-12-17 22:10:19 ADMIN     ERROR AL INICIAR SESION                           
+2015-12-17 22:10:27 ROOT      INICIO DE SESION                                  
+2015-12-17 22:11:29 ROOT      FINALIZA SESION                                   
+2015-12-17 22:11:38 ADMIN     INICIO DE SESION                                  
+2015-12-17 22:11:39 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 22:18:18 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 22:18:23 ADMIN     INGRESO A HISTORIAL                               
+2015-12-17 22:18:27 ADMIN     INGRESO A HISTORIAL                               
+2015-12-17 22:18:58 ADMIN     ACCESO A PANEL CONTABLE                           
+2015-12-17 22:19:05 ADMIN     INGRESO A DOCUMENTOS                              

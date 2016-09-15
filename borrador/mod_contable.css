@@ -1,0 +1,335 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-ago-2015, 12:11:58
+    Author     : CHRISTIAN
+*/
+
+/////////////Menu de Modulo contable////////////////
+body {
+    margin: 0;
+}
+h4, h5, h6,
+h1, h2, h3 {margin-top: 0;}
+ul, ol {margin: 0;}
+p {margin: 0;}
+label.form {
+  display: run-in;
+  margin: 1em 0 0 0;
+}
+.btn {
+  display:inline-table;
+  margin: 0.1em 0 ;
+}
+
+
+html, body{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 100%;
+    background:url(../images/arrow.png);
+}
+
+#header
+{
+  width: 1365px;
+  height: 100px;
+  background-color: black;
+  background:url(../images/noise.png);  
+}
+
+#contenedor_bl
+{
+    //background-color: #000;
+    width: auto;
+    height:auto;
+    margin: 0 auto;
+    //overflow-y: scroll;
+}
+
+#menus
+{
+    width: 1348px;
+    height: 100px;
+}
+
+#menu_contable
+{
+    //background-color:#003d48;
+    width: 697px;
+    height:100px;
+    margin: 0 auto;
+    float: left;
+    overflow: hidden;
+    background:url(../images/noise.png);
+}
+
+#menu_general
+{
+    background:url(../images/noise.png);
+    width: 650px;
+    height:100px;
+    margin: 0 auto;
+    float: right;
+    overflow: hidden;
+}
+
+#caja_us
+{
+    background:url(../images/quotes.png);
+    width: 650px;
+    height:50px;
+    margin: 0 auto;
+    float: right;
+    overflow: hidden;
+}
+
+#cuerpo
+{
+    width: auto;
+    height: auto;
+    float: none;
+}
+
+#banner_left
+{
+    //background:url(../images/fondoAzul.png);
+    width: 100px;
+    height:100px;
+    float: left;
+}
+
+        table{
+		margin: 0px auto 20px auto;
+		border-collapse: collapse;
+	}
+	
+	table thead tr th{
+		font-weight: normal;
+	}
+	
+	table tbody tr td, table tfoot tr td, table thead tr th{
+		padding: 6px;
+		vertical-align: top;
+	}
+	
+	table tfoot tr td{
+		text-align: right;
+	}
+	
+	table.editinplace tbody tr td{
+		border-bottom: 1px solid #ddd;
+	}
+	
+	table.editinplace thead th, table.formulario thead th{
+		color: #369;
+		border-bottom: 1px solid #CCC;
+	}
+
+	table.editinplace tfoot td, table.formulario tfoot td{
+		color: #369;
+	}
+
+
+
+#formulario_bll
+{
+    background-color:blue;
+    width: auto;
+    height:auto;
+    float:left;
+}
+form #formulario_bl p{
+	margin:auto;
+	width:100px;
+	margin-top:5px;
+	margin-bottom:3px;
+}
+form #formulario p{
+	margin:auto;
+	width:100px;
+	margin-top:5px;
+	margin-bottom:3px;
+}
+form #formulario_bll input{
+	border:1px solid #CCCCCC;
+	padding:3px;
+}
+form #formulario input{
+	border:1px solid #CCCCCC;
+	padding:3px;
+}
+
+form #formulario .texto{
+	width:100px;
+}
+form #formulario_bll .texto{
+	width:100px;
+}
+
+.menu li{
+    display:inline-block;
+}
+.menu li:first-child{
+    margin-left:0;
+}
+.menu li a{
+    display: block;
+    color:#787878;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.menu li a{font-size: 0.7em;}
+#nav .current a {
+    color:#fff;
+    background:#6dc5dd;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.menu li a:hover ,.menu li.active a{
+    color:#fff;
+    background:#f77462 !important;
+} 
+.menuadministracion li a:hover ,.menu li.active a{
+    color:#fff;
+    background:#f77462 !important;
+} 
+.toggleMenu {
+    display:  none;
+    padding:4px 5px 0px 5px;
+    border-radius:2em; 
+    -webkit-border-radius:2em;
+    -moz-border-radius:2em;
+    -o-border-radius:2em; 
+}
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+}
+@media screen and (max-width:800px) {
+    .menu {
+        margin:10px 0;
+    }
+    .active {
+        display: block;
+    }
+    .menu li a{
+        text-align:left;
+        border-radius:0;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        -o-border-radius:0;
+    }
+    .nav {
+        list-style: none;
+        width: 95%;
+        position: absolute;
+        right: 10px;
+        background: #051619;
+        top: 110px;
+        z-index: 9999;
+        border: 1px solid #E0E0E0;
+    }
+    .menu li a span.messages{
+        text-align:center;
+        top:15px;
+    }
+    .nav li ul{
+        width:100%;   	
+    }
+    .menu ul{
+        margin:0;
+    }
+    .nav > li.hover > ul {
+        width:100%;
+    }
+    .nav > li {
+        float: none;
+        display:block;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+    .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+    .nav li a{
+        border-top:1px solid #e0e0e0;
+        background:#fff;
+    }
+    .nav li:first-child a{
+        border-top:none;
+    }
+}
+
+table #grilla .lista
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;  
+    margin: 45px;    
+    width: 800px;
+    text-align: left;
+    border-collapse: collapse; 
+}
+#grilla .lista th {    
+    font-size: 13px; 
+    font-weight: normal;  
+    padding: 5px;    
+    background: #b9c9fe;
+    border-top: 4px solid #aabcfe;  
+    border-bottom: 1px solid #fff; color: #039; }
+
+#grilla .lista td {    padding: 8px;   
+        background: #e8edff; 
+        border-bottom: 1px solid #fff;
+        color: #669;  
+        border-top: 1px solid transparent; }
+
+#grilla .lista tr:hover td { background: #d0dafd; color: #339; }
+
+#form1
+{
+    float: left;
+    width: 300px;
+    height: auto;
+    //background-color: red;
+}
+#form2
+{
+    float: left;
+    width: 800px;
+    height: auto;
+    //display: inline;
+    //background-color: #039;
+}
+
+#div1,#div2
+{
+    display: table-cell;
+}
+
+
+
+#form3no
+{
+    float: left;
+    width: 400px;
+    height: 500px;
+    background-color: red;
+}
+
