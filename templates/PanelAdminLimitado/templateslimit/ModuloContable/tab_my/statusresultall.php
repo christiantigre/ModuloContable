@@ -6,8 +6,6 @@
  */
 ?>
 
-
-
 <input type="hidden" value="<?php echo $maxbalancedato; ?>" id="texto"/>
 
 <div class="mensaje"></div>
@@ -131,3 +129,4 @@ echo '<tr>'
  number_format($utilidad, 2, '.', '') . '</td>'
  . '</tr>';
 echo '</table>';
+

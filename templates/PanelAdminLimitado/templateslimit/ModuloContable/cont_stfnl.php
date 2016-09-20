@@ -488,10 +488,16 @@ $contador_ass = $row_cont['CON'];
                                                     include_once './tab_my/statusresultall.php';
                                                 }
                                                 if ($btntu == "periodos") {
-                                                    echo '<script>alert("FILTRO")</script>';
+                                                    $datetimepickermin = $_POST['datetimepicker1min'];
+                                                    $fechadesde = str_replace("-", ".", $datetimepickermin);
+                                                    $datetimepickermax = $_POST['datetimepicker1max'];
+                                                    $fechahasta = str_replace("-", ".", $datetimepickermax);
+                                                    require '../../Clases/filtroestadoresultados.php';
+                                                    $objFilEstRes = new filtroestadoresultados();
+                                                    $objFilEstRes->filtroporperiodos($fechadesde, $fechahasta);
                                                 }
                                             } else {
-                                                include_once './tab_my/statusresultall.php';
+                                                require('./tab_my/statusresultall.php');
                                             }
                                             ?>
                                         </center>
