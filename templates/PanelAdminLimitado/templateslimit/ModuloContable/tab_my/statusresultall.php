@@ -6,7 +6,7 @@
  */
 ?>
 
-<h3>Al <?php echo $dia ?> de <?php echo translateMonth($mes) ?> del <?php echo $year ?></h3>
+
 
 <input type="hidden" value="<?php echo $maxbalancedato; ?>" id="texto"/>
 
@@ -27,6 +27,11 @@ if ($resul_param->num_rows > 0) {
 echo '<table width="100%" class="table table-striped table-bordered table-hover">';
 echo "<br>";
 echo '<tr>';
+echo '<th colspan="5">';
+?>
+<h3>Al <?php echo $dia ?> de <?php echo translateMonth($mes) ?> del <?php echo $year ?></h3>
+<?Php
+echo '</th>';
 echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
 echo '<td style="display:none"></td>';
 echo '<td style="display:none"></td>';

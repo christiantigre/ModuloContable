@@ -180,51 +180,166 @@ $contador_ass = $row_cont['CON'];
                                             }
                                             $c->close();
                                             ?>
+                                            <link rel="stylesheet" type="text/css" href="../../../../datepicker/jquery.datetimepicker.css"/>
+                                            <script src="../../../../datepicker/jquery.js"></script>
+                                            <script src="../../../../datepicker/jquery.datetimepicker.full.js"></script>
+
                                             <div style="float: left;" class="menu"> 
-                                                <div class="col-xs-8 form-group">
-                                                    <button type="submit" title="IMPRIMIR" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
-                                                    <br>
 
-                                                </div> 
-                                                <div class="col-xs-8 form-group">
-                                                    <?php
-                                                    $c = $dbi->conexion();
-                                                    $muestraboton = "SELECT `estado` FROM `t_bl_inicial` WHERE year='" . $year . "' and idt_bl_inicial='" . $maxbalancedato . "'";
-                                                    $res = mysqli_query($c, $muestraboton);
-                                                    while ($data = mysqli_fetch_array($res)) {
-                                                        $estado = $data['estado'];
-                                                        if ($data['estado'] == "1") {
-                                                            ?>
-                                                            <input type="button" name="cierrecontabilidad" onclick="cierredeperiodo();" id="cierrecontabilidad" class="btn btn-outline btn-info glyphicon glyphicon-print" value="Cierre de Periodo"/>
-                                                            <?php
-                                                        } else {
-                                                            echo "<input type='button' name='cierrecontabilidad' id='cierrecontabilidad' class='btn btn-outline btn-info glyphicon glyphicon-print' disabled='true' value='Cierre de Periodo'/>";
-                                                        }
-                                                    }
-                                                    $c->close();
-                                                    ?>  
-                                                </div> 
-                                                <div class="col-xs-8 form-group">                                                          
-                                                    <label>Mes :</label>
-                                                    <button type="submit" class="btn btn-default" id="submit" name="submit" value="BUSCAR">BUSCAR</button>
-                                                    <button type="submit" class="btn btn-default" id="submit" name="submit" value="todo">Hasta la fecha</button>
-                                                    <select class="form-control" id="opciones" name="opciones">
-                                                        <?php
-                                                        $c = $dbi->conexion();
-                                                        $q_mes = "SELECT * FROM `mes` ORDER BY `mes_id` desc ";
-                                                        $res_mes = mysqli_query($c, $q_mes);
-                                                        while ($dt_mes = mysqli_fetch_array($res_mes)) {
-                                                            $id_m = $dt_mes['mes_id'];
-                                                            echo "<option value='" . $dt_mes['mes_id'] . '-' . $dt_mes['mes'] . "' >";
-                                                            echo $dt_id['mes_id'] . '      ' . utf8_decode($dt_mes['mes']);
-                                                            echo '</option>';
-                                                        }mysqli_close($c);
-                                                        ?>
-                                                    </select>
-
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h1 class="page-header">Estado de Resultados</h1>
+                                                    </div>
+                                                    <!-- /.col-lg-12 -->
                                                 </div>
+                                                <!-- /.row -->
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="panel panel-success">
+                                                            <div class="panel-heading">
+                                                                Filtrar por fecha
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                    <input type="text" autocomplete="off" placeholder="Fecha desde" class="form-control" id="datetimepicker1min" name="datetimepicker1min" value=""/>
+                                                                    <script>
+                                            jQuery.datetimepicker.setLocale('es');
+                                            jQuery('#datetimepicker1min').datetimepicker({
+                                                i18n: {
+                                                    de: {
+                                                        months: [
+                                                            'Enero', 'Febrero', 'Marzo', 'Abril',
+                                                            'Mayo', 'Junio', 'Julio', 'Agosto',
+                                                            'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
+                                                        ],
+                                                        dayOfWeek: [
+                                                            "So.", "Mo", "Di", "Mi",
+                                                            "Do", "Fr", "Sa.",
+                                                        ]
+                                                    }
+                                                },
+                                                timepicker: false,
+                                                format: 'Y-m-d'
+                                            });
+                                                                    </script>
+
+                                                                    <!--<label>Hasta :</label>-->
+                                                                    <input type="text" autocomplete="off" placeholder="Fecha hasta" class="form-control" id="datetimepicker1max" name="datetimepicker1max" value=""/>
+                                                                    <script>
+                                                                        jQuery.datetimepicker.setLocale('es');
+                                                                        jQuery('#datetimepicker1max').datetimepicker({
+                                                                            i18n: {
+                                                                                de: {
+                                                                                    months: [
+                                                                                        'Enero', 'Febrero', 'Marzo', 'Abril',
+                                                                                        'Mayo', 'Junio', 'Julio', 'Agosto',
+                                                                                        'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
+                                                                                    ],
+                                                                                    dayOfWeek: [
+                                                                                        "So.", "Mo", "Di", "Mi",
+                                                                                        "Do", "Fr", "Sa.",
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            timepicker: false,
+                                                                            format: 'Y-m-d'
+                                                                        });
+                                                                    </script>
+                                                                    <br>
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-success" id="submit" name="submit" value="periodos">BUSCAR</button>
+                                                                </div>
+                                                                </p>
+                                                            </div>
+                                                            <div class="panel-footer">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col-lg-4 -->
+                                                    <div class="col-lg-4">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                Buscar por mes
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <div class="col-xs-8 form-group">  
+                                                                    <div class="form-group">
+                                                                        <select class="form-control" id="opciones" name="opciones">
+                                                                            <?php
+                                                                            $c = $dbi->conexion();
+                                                                            $q_mes = "SELECT * FROM `mes` ORDER BY `mes_id` desc ";
+                                                                            $res_mes = mysqli_query($c, $q_mes);
+                                                                            while ($dt_mes = mysqli_fetch_array($res_mes)) {
+                                                                                $id_m = $dt_mes['mes_id'];
+                                                                                echo "<option value='" . $dt_mes['mes_id'] . '-' . $dt_mes['mes'] . "' >";
+                                                                                echo $dt_id['mes_id'] . '      ' . utf8_decode($dt_mes['mes']);
+                                                                                echo '</option>';
+                                                                            }mysqli_close($c);
+                                                                            ?>
+                                                                        </select> 
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <button type="submit" class="btn btn-default" id="submit" name="submit" value="BUSCAR">BUSCAR</button>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <button type="submit" class="btn btn-default" id="submit" name="submit" value="todo">Hasta la fecha</button>
+                                                                    </div>
+                                                                </div>
+                                                                </p>
+                                                            </div>
+                                                            <div class="panel-footer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col-lg-4 -->
+                                                    <div class="col-lg-4">
+                                                        <div class="panel panel-info">
+                                                            <div class="panel-heading">
+                                                                Acciónes
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <div class="col-xs-8 form-group-sm">
+                                                                    <div class="form-group">
+                                                                        <button type="submit" title="IMPRIMIR" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
+                                                                        <br>
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="col-xs-8 form-group">
+                                                                    <div class="form-group">
+                                                                        <?php
+                                                                        $c = $dbi->conexion();
+                                                                        $muestraboton = "SELECT `estado` FROM `t_bl_inicial` WHERE year='" . $year . "' and idt_bl_inicial='" . $maxbalancedato . "'";
+                                                                        $res = mysqli_query($c, $muestraboton);
+                                                                        while ($data = mysqli_fetch_array($res)) {
+                                                                            $estado = $data['estado'];
+                                                                            if ($data['estado'] == "1") {
+                                                                                ?>
+                                                                                <input type="button" name="cierrecontabilidad" onclick="cierredeperiodo();" id="cierrecontabilidad" class="btn btn-outline btn-info glyphicon glyphicon-print" value="Cierre de Periodo"/>
+                                                                                <?php
+                                                                            } else {
+                                                                                echo "<input type='button' name='cierrecontabilidad' id='cierrecontabilidad' class='btn btn-outline btn-info glyphicon glyphicon-print' disabled='true' value='Cierre de Periodo'/>";
+                                                                            }
+                                                                        }
+                                                                        $c->close();
+                                                                        ?>  
+                                                                    </div>
+                                                                </div> 
+                                                                </p>
+                                                            </div>
+                                                            <div class="panel-footer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col-lg-4 -->
+                                                </div>
+
+
+
                                             </div>  
-                                            <h1>Estado de Resultados</h1> 
+
 
                                             <?Php
                                             if (isset($_POST["submit"])) {
@@ -276,40 +391,40 @@ $contador_ass = $row_cont['CON'];
                                                         $numIng = mysqli_num_rows($resulgrupos);
                                                         if (!empty($numIng)) {
                                                             $str = strlen($row2['codigo']);
-                                                        echo '<tr>
+                                                            echo '<tr>
                                                         <td>' . $row2['codigo'] . '</td>
                                                         <td>' . $row2['cuenta'] . '</td>';
-                                                        if ($str == 2) {
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                            if ($str == 2) {
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
 
-                                                            for ($i = 0; $i <= count($numIng); $i++) {
-                                                                $datosIngreso[] = $row2['total'];
+                                                                for ($i = 0; $i <= count($numIng); $i++) {
+                                                                    $datosIngreso[] = $row2['total'];
+                                                                }
+                                                            } elseif ($str == 4) {
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                            } elseif ($str == 6) {
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                            } elseif ($str == 8) {
+                                                                echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
                                                             }
-                                                        } elseif ($str == 4) {
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                        } elseif ($str == 6) {
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                        } elseif ($str == 8) {
-                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                        }
-                                                        echo '</tr>';
+                                                            echo '</tr>';
                                                         } else {
                                                             echo '<script>alert("NO HAY INGRESOS")</script>';
                                                         }
 
-                                                        
+
 
                                                         //echo "<script>alert('".$numIng."')</script>";
                                                     }
@@ -318,38 +433,37 @@ $contador_ass = $row_cont['CON'];
                                                         $numGas = mysqli_num_rows($resulgruposcg);
                                                         if (!empty($numGas)) {
                                                             $str = strlen($row3['codigo']);
-                                                        echo '<tr>
+                                                            echo '<tr>
                                                         <td>' . $row3['codigo'] . '</td>
                                                         <td>' . $row3['cuenta'] . '</td>';
-                                                        if ($str == 2) {
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
-                                                            for ($j = 0; $j <= count($numGas); $j++) {
-                                                                $datosGastos[] = $row3['total'];
+                                                            if ($str == 2) {
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
+                                                                for ($j = 0; $j <= count($numGas); $j++) {
+                                                                    $datosGastos[] = $row3['total'];
+                                                                }
+                                                            } elseif ($str == 4) {
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                            } elseif ($str == 6) {
+                                                                echo '<td></td>';
+                                                                echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                            } elseif ($str == 8) {
+                                                                echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
                                                             }
-                                                        } elseif ($str == 4) {
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                        } elseif ($str == 6) {
-                                                            echo '<td></td>';
-                                                            echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                        } elseif ($str == 8) {
-                                                            echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                            echo '<td></td>';
-                                                        }
-                                                        echo '</tr>';
+                                                            echo '</tr>';
                                                         } else {
                                                             echo '<script>alert("NO HAY GASTOS")</script>';
                                                         }
-                                                        
                                                     }
 
                                                     $utilidad = $datosIngreso[0] - $datosGastos[0];
@@ -372,6 +486,9 @@ $contador_ass = $row_cont['CON'];
                                                 }
                                                 if ($btntu == "todo") {
                                                     include_once './tab_my/statusresultall.php';
+                                                }
+                                                if ($btntu == "periodos") {
+                                                    echo '<script>alert("FILTRO")</script>';
                                                 }
                                             } else {
                                                 include_once './tab_my/statusresultall.php';
