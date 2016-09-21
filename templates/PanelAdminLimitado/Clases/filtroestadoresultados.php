@@ -1,8 +1,6 @@
 <?php
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase para visualizacion por filtros en estado de resultados
  */
 
 /**
@@ -10,15 +8,17 @@
  *
  * @author Administrador
  */
+
+        include '../../Clases/acentos.php';
 class filtroestadoresultados {
 
-    function filtroporperiodos($fechadesde, $fechahasta) {
+    function filtroporperiodos($fechadesde, $fechahasta, $dbi) {
 //        echo '<script>alert("' . $fechadesde . '")</script>';
-//        <input type = "hidden" value = "<?php echo $maxbalancedato; 
-        ?>" id = "texto"/>
+        ?>
+        <input type = 'hidden' value ="<?Php echo $maxbalancedato; ?>id = 'texto'/>";
 
-        <div class = "mensaje"></div>
-        <input type = "hidden" value = "<?php // echo $estado;  ?>"/>
+               <div class = "mensaje"></div>
+        <input type = "hidden" value = "<?php // echo $estado;    ?>"/>
         <input type = "hidden" value = "<?php echo $uno; ?>" id = "mes"/>
         <?Php
         $c = $dbi->conexion();
@@ -36,7 +36,21 @@ class filtroestadoresultados {
         echo '<tr>';
         echo '<th colspan="5">';
         ?>
-        <h3>Al <?php // echo $dia ?> de <?php // echo translateMonth($mes) ?> del <?php // echo $year ?></h3>
+        <?Php
+        $position_f = explode('-', $fechadesde);
+        $diadesde = $position_f[0];
+        $mesdesde = $position_f[1];
+        $yeardesde = $position_f[2];
+        
+        
+        $position_h = explode('-', $fechahasta);
+        $diahasta = $position_h[0];
+        $meshasta = $position_h[1];
+        $yearhasta = $position_h[2];       
+        
+        ?>
+        <h3>Del <?Php echo $diadesde ?> de <?Php echo MonthNumber($mesdesde)?> Al <?Php echo $diahasta ?> de <?php echo MonthNumber($meshasta) ?> del <?php echo $yeardesde ?></h3>
+        
         <?Php
         echo '</th>';
 //        echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
@@ -46,11 +60,13 @@ class filtroestadoresultados {
         echo '</tr>';
 
 //                                           SQL INGRESOS and mes<='8'
-        $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where fecha between '".  str_replace('.', '-', $fechadesde)."' and '".  str_replace('.', '-', $fechahasta)."' ORDER BY codigo ASC";
+
+        $conn = $dbi->conexion();
+        $select_ct = "SELECT * FROM ingresos where fecha between '" . $fechadesde . "' and '" . $fechahasta . "' ORDER BY codigo ASC";
         $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
 
 //                                           SQL COSTOS Y GASTOS
-        $select_cg = "SELECT codigo,cuenta,total FROM estadoresultados where fecha between '".  str_replace('.', '-', $fechadesde)."' and '".  str_replace('.', '-', $fechahasta)."' ORDER BY codigo ASC";
+        $select_cg = "SELECT * FROM gastos where fecha between '" . $fechadesde. "' and '" . $fechahasta . "' ORDER BY codigo ASC";
         $resulgruposcg = mysqli_query($conn, $select_cg)or trigger_error("Query Failed! SQL: $select_cg - Error: " . mysqli_error($mysqli), E_USER_ERROR);
 
         $datosIngreso = array();
@@ -135,6 +151,7 @@ class filtroestadoresultados {
         . '<td></td>'
         . '<td></td>'
         . '<td>' .
+               
         number_format($utilidad, 2, '.', '') . '</td>'
         . '</tr>';
         echo '</table>';

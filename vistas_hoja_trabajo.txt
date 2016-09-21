@@ -60,6 +60,17 @@ SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( 
 UNION
 SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` = `s_deudor`
 
+5)------------------------------------------VISTA DE INGRESOS----------------------------------------------
+CREATE VIEW ingresos AS
+SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
+ estadoresultados where codigo between '4.' and '4.99.99.99.' ORDER BY codigo ASC
+
+6)------------------------------------------VISTA DE GASTOS------------------------------------------------
+CREATE VIEW gastos AS
+CREATE VIEW ingresos AS
+SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
+ estadoresultados where codigo between '5.' and '5.99.99.99.' ORDER BY codigo ASC
+
 ------------------------------------------OPCIONAL HOJA DE TRABAJO SIN CALCULOS DE RESULTADOS------------
 vista sin calculo final
 create view hoja_de_trabajo as
