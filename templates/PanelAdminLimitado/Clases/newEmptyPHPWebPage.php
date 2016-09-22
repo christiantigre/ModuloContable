@@ -16,7 +16,7 @@ and open the template in the editor.
         include './filtroestadoresultados.php';
         $objFiltro = new filtroestadoresultados();
         $fechadesde = "01-01-2016";
-        $fechahasta = "20-09-2016";
+        $fechahasta = "22-03-2016";
         $objFiltro->filtroporperiodos($fechadesde, $fechahasta,$dbi);
         // put your code here
         ?>
