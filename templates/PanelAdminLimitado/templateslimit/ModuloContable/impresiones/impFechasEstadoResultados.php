@@ -163,5 +163,8 @@ $pdf->Cell(195, 4, '', 'T', 0, 'L');
 $pdf->Output();
 mysqli_close($db);
 mysqli_close($c);
+include '../../../Clases/guardahistorialimp.php';
+$accion = " / IMP / Impresion Estado de Resultados desde ".$datemin." hasta " . $datemax;
+generaLogs($variablerespo, $accion);
 ?>
 
