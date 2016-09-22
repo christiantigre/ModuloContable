@@ -673,6 +673,17 @@ function imp_blresfechas(id, fechamin, fechamax) {
         window.open('./impresiones/impFechasEstadoResultados.php?prmlg=' + id + '&datemin=' + fechadesde + '&datemax=' + fechahasta);
     }
 }
+function imp_blsitfechas(id, fechamin, fechamax) {
+    var fechadesde = $("#fechadesde").val();
+    var fechahasta = $("#fechahasta").val();
+    if (fechadesde === "") {
+        alert("No es posible imprimir este documento");
+    } else if (fechahasta === "") {
+        alert("No es posible imprimir este documento");
+    } else {
+        window.open('./impresiones/impFechasSituacion.php?prmlg=' + id + '&datemin=' + fechadesde + '&datemax=' + fechahasta);
+    }
+}
 function imp_ajs(ass, y, m, d, id) {
     var fec = y + '_' + m + '_' + d;
     window.open('./impresiones/impajustedetall.php?id_asientourl=' + ass + '&y=' + y + '&m=' + m + '&d=' + d + '&fechaurl=' + fec + '&idlogeo=' + id);

@@ -328,7 +328,7 @@ $contador_ass = $row_cont['CON'];
                                                                 <p>
                                                                 <div class="col-xs-8 form-group-sm">
                                                                     <div class="form-group">
-                                                                        <button type="button" title="IMPRIMIR" id="imp" name="imp" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
+                                                                        <button type="button" title="IMPRIMIR TODO EL ESTADO DE RESULTADOS" id="imp" name="imp" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
                                                                         <br>
                                                                     </div>
                                                                 </div> 
