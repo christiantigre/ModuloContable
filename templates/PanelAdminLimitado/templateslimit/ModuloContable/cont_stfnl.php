@@ -247,7 +247,32 @@ $contador_ass = $row_cont['CON'];
                                                                     </script>
                                                                     <br>
                                                                 <div class="form-group">
-                                                                    <button type="submit" class="btn btn-success" id="submit" name="submit" value="periodos">BUSCAR</button>
+                                                                    <button type="submit" onclick="return cvereficarvalores(this)" class="btn btn-success" id="submit" name="submit" value="periodos">BUSCAR</button>
+                                                                    <script>
+
+                                                                        function cvereficarvalores() {
+
+                                                                            if (document.BalancedeComprobacion.datetimepicker1min.value.length == 0) {
+                                                                                alert("Seleccione desde que fecha buscar");
+                                                                                document.BalancedeComprobacion.datetimepicker1min.focus();
+                                                                                return false;
+                                                                            }
+
+                                                                            if (document.BalancedeComprobacion.datetimepicker1max.value.length == 0) {
+                                                                                alert("Seleccione hasta que fecha buscar");
+                                                                                document.BalancedeComprobacion.datetimepicker1max.focus();
+                                                                                return false;
+                                                                            }
+                                                                            document.BalancedeComprobacion.submit();
+                                                                            return true;
+
+                                                                        }
+                                                                        
+                                                                        function cvereficarmes(){
+                                                                            
+                                                                        }
+
+                                                                    </script>
                                                                 </div>
                                                                 </p>
                                                             </div>
@@ -281,7 +306,7 @@ $contador_ass = $row_cont['CON'];
                                                                         </select> 
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <button type="submit" class="btn btn-default" id="submit" name="submit" value="BUSCAR">BUSCAR</button>
+                                                                        <button type="submit" onclick="return cvereficarmes(this)" class="btn btn-default" id="submit" name="submit" value="BUSCAR">BUSCAR</button>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <button type="submit" class="btn btn-default" id="submit" name="submit" value="todo">Hasta la fecha</button>
@@ -303,7 +328,7 @@ $contador_ass = $row_cont['CON'];
                                                                 <p>
                                                                 <div class="col-xs-8 form-group-sm">
                                                                     <div class="form-group">
-                                                                        <button type="submit" title="IMPRIMIR" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
+                                                                        <button type="button" title="IMPRIMIR" id="imp" name="imp" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresUtil(<?Php echo $idlogeobl; ?>)"></button>
                                                                         <br>
                                                                     </div>
                                                                 </div> 
@@ -492,7 +517,7 @@ $contador_ass = $row_cont['CON'];
                                                     $datetimepickermax = $_POST['datetimepicker1max'];
                                                     require '../../Clases/filtroestadoresultados.php';
                                                     $objFilEstRes = new filtroestadoresultados();
-                                                    $objFilEstRes->filtroporperiodos($datetimepickermin, $datetimepickermax,$dbi);
+                                                    $objFilEstRes->filtroporperiodos($datetimepickermin, $datetimepickermax, $dbi);
                                                 }
                                             } else {
                                                 require('./tab_my/statusresultall.php');

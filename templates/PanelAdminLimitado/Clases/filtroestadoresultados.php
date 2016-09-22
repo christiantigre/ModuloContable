@@ -14,13 +14,6 @@ class filtroestadoresultados {
 
     function filtroporperiodos($fechadesde, $fechahasta, $dbi) {
 //        echo '<script>alert("' . $fechadesde . '")</script>';
-        ?>
-        <input type = 'hidden' value ="<?Php echo $maxbalancedato; ?>id = 'texto'/>";
-
-               <div class = "mensaje"></div>
-        <input type = "hidden" value = "<?php // echo $estado;         ?>"/>
-        <input type = "hidden" value = "<?php echo $uno; ?>" id = "mes"/>
-        <?Php
         $c = $dbi->conexion();
         $sqlparametro = " SELECT max( `idt_bl_inicial` ) AS cont FROM `t_bl_inicial`";
         $resul_param = $c->query($sqlparametro);
@@ -31,6 +24,12 @@ class filtroestadoresultados {
         } else {
             echo "<script>alert('Ocurrio un error al cargar un parametro...')</script>";
         }
+        ?>
+        <input type = 'hidden' value ="<?Php echo $parametro_contador; ?>" id = 'texto'/>
+        <div class = "mensaje"></div>
+        <input type = "hidden" value = "<?php echo $fechadesde; ?>" id="fechadesde"/>
+        <input type = "hidden" value = "<?php echo $fechahasta; ?>" id= "fechahasta"/>
+        <?Php
         echo '<table width="100%" class="table table-striped table-bordered table-hover">';
         echo "<br>";
         echo '<tr>';
@@ -49,7 +48,9 @@ class filtroestadoresultados {
         $yearhasta = $position_h[0];
         ?>
         <h3>Del <?Php echo $diadesde ?> de <?Php echo MonthNumber($mesdesde) ?> Al <?Php echo $diahasta ?> de <?php echo MonthNumber($meshasta) ?> del <?php echo $yeardesde ?></h3>
-
+        <td>
+            <button type="button" title="IMPRIMIR" id="imp" name="imp" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blresfechas(<?Php echo $idlogeobl; ?>)"></button>
+        </td>                                                                        
         <?Php
         echo '</th>';
 //        echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
@@ -85,7 +86,7 @@ class filtroestadoresultados {
         $select_fechags = "SELECT * FROM gastos where fecha";
         $resulfechags = mysqli_query($conn, $select_fechags)or trigger_error("Query Failed! SQL: $select_fechags - Error: " . mysqli_error($conn), E_USER_ERROR);
         while ($rowfchgs = mysqli_fetch_array($resulfechags)) {
-            $originalDategs = $rowfchgs['fecha'];//echo $originalDategs;echo "<br>";
+            $originalDategs = $rowfchgs['fecha']; //echo $originalDategs;echo "<br>";
             $newDategs = date("Y-m-d", strtotime($originalDategs));
             $insertgs = mysqli_query($conn, "INSERT INTO `tempgastos` ("
                     . "`codigo`, `cuenta`, `s_deudor`, `s_acreedor`, `total`, `contabilidad`, `year`, `mes`, `fecha`) VALUES ("
@@ -95,7 +96,7 @@ class filtroestadoresultados {
 //        visualiza los datos de la consulta
         $desde = date("Y-m-d", strtotime($fechadesde));
         $hasta = date("Y-m-d", strtotime($fechahasta));
-        
+
         $select_ct = "SELECT * FROM tempingresos where fecha between '" . $desde . "' and '" . $hasta . "' ORDER BY codigo ASC";
         $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
 
@@ -171,12 +172,12 @@ class filtroestadoresultados {
             echo '</tr>';
         }
         $utilidad = 0;
-        if ($datosIngreso[0]>0) {
+        if ($datosIngreso[0] > 0) {
             $utilidad = $datosIngreso[0] - $datosGastos[0];
-        }  else {
+        } else {
             $utilidad = $datosGastos[0] - $datosIngreso[0];
         }
-        
+
 
         if (isset($utilidad)) {
             $utilidad = $utilidad;
