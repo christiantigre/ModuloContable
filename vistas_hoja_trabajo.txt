@@ -23,7 +23,7 @@ vista agrupacion correccion
 2)-----------------------------------------CREA LA AGRUPACION DE CUNETAS MAYORIZADAS--------------------
 CREATE VIEW AGRUPACION AS SELECT hj.cod_cuenta as referencia,c.cod_clase as clase,pl.t_grupo_cod_grupo as grupo,
  pl.t_cuenta_cod_cuenta as cuenta,pl.t_subcuenta_cod_subcuenta as subcuenta,pl.t_auxiliar_cod_cauxiliar as auxiliar,
- pl.t_subauxiliar_cod_subauxiliar as subauxiliar, sum(hj.sum_deudor) as deudor, sum(hj.sum_acreedor) as acreedor,hj.t_bl_inicial_idt_bl_inicial as contabilidad,hj.year,CASE mes
+ pl.t_subauxiliar_cod_subauxiliar as subauxiliar, sum(hj.sum_deudor) as deudor, sum(hj.sum_acreedor) as acreedor,hj.t_bl_inicial_idt_bl_inicial as contabilidad,hj.year,hj.fecha,CASE mes
             WHEN 'ENERO'        THEN 1
             WHEN 'FEBRERO'        THEN 2
             WHEN 'MARZO'        THEN 3
@@ -43,22 +43,33 @@ CREATE VIEW AGRUPACION AS SELECT hj.cod_cuenta as referencia,c.cod_clase as clas
 3)--------------------------------------REALIZA LA SUMA DE LAS CUENTAS AGRUPADAS---------------------
 VISTA DE AGRUPACION YA SUMADAS
 CREATE VIEW sumatoriadeagrupacion AS 
-SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
 UNION
-SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
 UNION
-SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
+SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
 UNION
-SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta
+SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta
 
 4)-------------------------------------MUESTRA EL ESTADO DE RESULTADOS-----------------------------
 VISTA ESTADO DE RESULTADOS
 CREATE VIEW estadoresultados AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` = `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` = `s_deudor`
+
+5)------------------------------------------VISTA DE INGRESOS----------------------------------------------
+CREATE VIEW ingresos AS
+SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
+ estadoresultados where codigo between '4.' and '4.99.99.99.' ORDER BY codigo ASC
+
+6)------------------------------------------VISTA DE GASTOS------------------------------------------------
+CREATE VIEW gastos AS
+CREATE VIEW ingresos AS
+SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
+ estadoresultados where codigo between '5.' and '5.99.99.99.' ORDER BY codigo ASC
 
 ------------------------------------------OPCIONAL HOJA DE TRABAJO SIN CALCULOS DE RESULTADOS------------
 vista sin calculo final

@@ -29,16 +29,16 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-     var totd= $("#totd").val(); 
-     var toth= $("#toth").val(); 
-     if (totd == toth){
-         $("#totd").css({background:"#c1e2b9"});
-         $("#toth").css({background:"#c1e2b9"});
-     }
-     if (totd != toth){
-         $("#totd").css({background:"#f2dede"});
-         $("#toth").css({background:"#f2dede"});
-     }
+    var totd = $("#totd").val();
+    var toth = $("#toth").val();
+    if (totd == toth) {
+        $("#totd").css({background: "#c1e2b9"});
+        $("#toth").css({background: "#c1e2b9"});
+    }
+    if (totd != toth) {
+        $("#totd").css({background: "#f2dede"});
+        $("#toth").css({background: "#f2dede"});
+    }
 });
 
 function upmod(campo) {
@@ -499,44 +499,44 @@ function detall_asini(a) {
     ajax.send(null);
 }
 
-function my(id){
-var idbl = $("#idcod").val();
-var cta = $("#tip_cuentadh").val();
-var y = $("#year").val();
-         window.open('./../../../templateslimit/ModuloContable/impresiones/my_cta.php?cta='+cta+'&bl='+idbl+'&y='+y, true);    
+function my(id) {
+    var idbl = $("#idcod").val();
+    var cta = $("#tip_cuentadh").val();
+    var y = $("#year").val();
+    window.open('./../../../templateslimit/ModuloContable/impresiones/my_cta.php?cta=' + cta + '&bl=' + idbl + '&y=' + y, true);
 }
 
-function my_ex(id){
-var idbl = $("#idcod").val();
-var cta = $("#tip_cuentadh").val();
-var y = $("#year").val();
+function my_ex(id) {
+    var idbl = $("#idcod").val();
+    var cta = $("#tip_cuentadh").val();
+    var y = $("#year").val();
 //    alert(idbl);    alert(cta);    alert(y);    
-    window.open('./../../../templateslimit/ModuloContable/documentos/export/ex_my_cta.php?cta='+cta+'&bl='+idbl+'&y='+y, true);
+    window.open('./../../../templateslimit/ModuloContable/documentos/export/ex_my_cta.php?cta=' + cta + '&bl=' + idbl + '&y=' + y, true);
 }
-function my_ex_dt(id){
-var idbl = $("#idcod_dt").val();
-var cta = $("#tip_cuentadh_dt").val();
-var y = $("#year_dt").val();
+function my_ex_dt(id) {
+    var idbl = $("#idcod_dt").val();
+    var cta = $("#tip_cuentadh_dt").val();
+    var y = $("#year_dt").val();
 //    alert(idbl);    alert(cta);    alert(y);    
-    window.open('./../../../templateslimit/ModuloContable/documentos/export/ex_my_cta.php?cta='+cta+'&bl='+idbl+'&y='+y, true);
+    window.open('./../../../templateslimit/ModuloContable/documentos/export/ex_my_cta.php?cta=' + cta + '&bl=' + idbl + '&y=' + y, true);
 }
 
-function my_data(id){
-var idbl = $("#idcod_dt").val();
-var cta = $("#tip_cuentadh_dt").val();
-var y = $("#year_dt").val();
+function my_data(id) {
+    var idbl = $("#idcod_dt").val();
+    var cta = $("#tip_cuentadh_dt").val();
+    var y = $("#year_dt").val();
 //    alert(idbl);    alert(cta);    alert(y);    
-    window.open('./../../../templateslimit/ModuloContable/impresiones/my_cta.php?cta='+cta+'&bl='+idbl+'&y='+y, true);
+    window.open('./../../../templateslimit/ModuloContable/impresiones/my_cta.php?cta=' + cta + '&bl=' + idbl + '&y=' + y, true);
 }
 //print x cuenta individual
-function imp_taMay(){
+function imp_taMay() {
     var cod = $("#cmp_my").val();
     var year = $("#year").val();
     var bl = $("#bl").val();
-    window.open('./../../templateslimit/ModuloContable/impresiones/my_ctaindiv.php?cod='+cod+'&year='+year+'&bl='+bl, true);
+    window.open('./../../templateslimit/ModuloContable/impresiones/my_ctaindiv.php?cod=' + cod + '&year=' + year + '&bl=' + bl, true);
 }
 //print x periodos
-function imp_taMaydatafech(){
+function imp_taMaydatafech() {
 //    var cod = $("#cmp_my").val();
     var year = $("#year").val();
     var bl = $("#bl").val();
@@ -544,10 +544,10 @@ function imp_taMaydatafech(){
     var fechaf = $("#fechaf").val();
 //    alert(fechai);
 //    alert(fechaf);
-    window.open('./../../templateslimit/ModuloContable/impresiones/my_fechdata.php?year='+year+'&bl='+bl+'&fechai='+fechai+'&fechaf='+fechaf, true);
+    window.open('./../../templateslimit/ModuloContable/impresiones/my_fechdata.php?year=' + year + '&bl=' + bl + '&fechai=' + fechai + '&fechaf=' + fechaf, true);
 }
 //print filtro cuenta y fechas
-function imp_taMaydatafechf(){
+function imp_taMaydatafechf() {
 //    var cod = $("#cmp_my").val();
     var year = $("#year").val();
     var bl = $("#bl").val();
@@ -556,7 +556,7 @@ function imp_taMaydatafechf(){
     var tip_cuentadhp = $("#tip_cuentadhp").val();
 //    alert(fechai);
 //    alert(fechaf);
-    window.open('./../../templateslimit/ModuloContable/impresiones/my_ffpechdata.php?year='+year+'&bl='+bl+'&fechai='+fechai+'&fechaf='+fechaf+'&ccta='+tip_cuentadhp, true);
+    window.open('./../../templateslimit/ModuloContable/impresiones/my_ffpechdata.php?year=' + year + '&bl=' + bl + '&fechai=' + fechai + '&fechaf=' + fechaf + '&ccta=' + tip_cuentadhp, true);
 }
 
 function detall_as_my(a) {
@@ -648,7 +648,7 @@ function imp_assin_ass_sec() {
     var a = $("#as").val();
     var f = $("#f").val();
     var l = $("#log").val();
-    window.open('../impresiones/impasientos.php?fech_url=' + f + "&id_asientourl=" + a + "&idlogeo="+l);
+    window.open('../impresiones/impasientos.php?fech_url=' + f + "&id_asientourl=" + a + "&idlogeo=" + l);
 }
 function imp_blres(id) {
 //    window.open('./impresiones/impbalanceresultados.php?prmlg=' + id);
@@ -656,8 +656,22 @@ function imp_blres(id) {
 }
 function imp_blresUtil(id) {
     var mes = $("#mes").val();
-//    window.open('./impresiones/impbalanceresultados.php?prmlg=' + id);
-    window.open('./impresiones/impEstadoResultados.php?prmlg=' + id +'&month='+mes);
+    if (!isFinite(mes)) {
+        alert("No es posible imprimir este documento");
+    } else {
+        window.open('./impresiones/impEstadoResultados.php?prmlg=' + id + '&month=' + mes);
+    }
+}
+function imp_blresfechas(id, fechamin, fechamax) {
+    var fechadesde = $("#fechadesde").val();
+    var fechahasta = $("#fechahasta").val();
+    if (fechadesde === "") {
+        alert("No es posible imprimir este documento");
+    } else if (fechahasta === "") {
+        alert("No es posible imprimir este documento");
+    } else {
+        window.open('./impresiones/impFechasEstadoResultados.php?prmlg=' + id + '&datemin=' + fechadesde + '&datemax=' + fechahasta);
+    }
 }
 function imp_ajs(ass, y, m, d, id) {
     var fec = y + '_' + m + '_' + d;
@@ -775,7 +789,7 @@ function rr_imprimirbalancecompn()
     var fech_url = $("#fechacom").val();
     window.open('./ModuloContable/documentos/impresiones/impbalanceresultados.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
     u_link&413&vlink*data_kykwww=121&key=00.003&prmlg=' + idlogeo + '&fechaurl=' + fech_url);
-   
+
 }
 
 
@@ -1103,7 +1117,7 @@ function r_imp_assin_ass(a) {
 function sec_imp_assin_ass(a) {
     var f = $("#fecha_" + a).val();
     var ass = $("#ass_" + a).val();
-    window.open('./impresiones/impasientosec.php?fech_url=' + f +"&fechaurl="+f+ "&id_asientourl=" + ass + "&idlogeo=");
+    window.open('./impresiones/impasientosec.php?fech_url=' + f + "&fechaurl=" + f + "&id_asientourl=" + ass + "&idlogeo=");
 }
 
 function r_imp_assin(a) {
@@ -1127,7 +1141,7 @@ function rr_agregar_new() {
     var balances_realizadost = $("#balances_realizadost").val();
     var idlogt = $("#idlogt").val();
     var answer = confirm("Deseas agregar una transacción al asiento?");
-            //alert(""+seleccion+" "+valor+" "+" "+cod_cuentat+" "+nom_cuentat+" "+datetimepickert);
+    //alert(""+seleccion+" "+valor+" "+" "+cod_cuentat+" "+nom_cuentat+" "+datetimepickert);
     if (seleccion == 1) {
         if (answer) {
             newAlert("success", "        Agragado !!!");
@@ -1224,17 +1238,17 @@ function rr_agregar_new_ass() {
     }
 }
 
-function exp_wd_num_as(id){
-    var tar= $("#tar").val();
+function exp_wd_num_as(id) {
+    var tar = $("#tar").val();
     var fh = $("#fh").val();
-    window.open('../../templates/PanelAdminLimitado/templateslimit/ModuloContable/documentos/export/'+id+'.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    window.open('../../templates/PanelAdminLimitado/templateslimit/ModuloContable/documentos/export/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
     u_link&413&vlink*data_kykwww=121&key=00.003&tar=' + tar + '&year=2010&fh=' + fh);
 }
-function exp_asiento(id,b){
+function exp_asiento(id, b) {
     var c = b;
-    var tar= $("#tara_"+c).val();
-    var fh = $("#fha_"+c).val();
-    window.open('../../templates/PanelAdminLimitado/templateslimit/ModuloContable/documentos/export/'+id+'.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    var tar = $("#tara_" + c).val();
+    var fh = $("#fha_" + c).val();
+    window.open('../../templates/PanelAdminLimitado/templateslimit/ModuloContable/documentos/export/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
     u_link&413&vlink*data_kykwww=121&key=00.003&tar=' + tar + '&year=2010&fh=' + fh);
 }
 
