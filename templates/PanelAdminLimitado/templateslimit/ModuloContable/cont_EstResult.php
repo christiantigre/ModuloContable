@@ -38,6 +38,9 @@ $contador_de_asientosSQL = "select count(year)+1 as CON from num_asientos"
 $query_contador = mysqli_query($c, $contador_de_asientosSQL);
 $row_cont = mysqli_fetch_array($query_contador);
 $contador_ass = $row_cont['CON'];
+
+include '../../../Clases/acentos.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +81,9 @@ $contador_ass = $row_cont['CON'];
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <link rel="stylesheet" type="text/css" href="../../../../datepicker/jquery.datetimepicker.css"/>
+        <script src="../../../../datepicker/jquery.js"></script>
+        <script src="../../../../datepicker/jquery.datetimepicker.full.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -137,33 +142,166 @@ $contador_ass = $row_cont['CON'];
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <form name="BalancedeComprobacion" id="BalancedeComprobacion" action="cont_EstResult.php" method="post">
-                                        <div style="float: left;" class="menu"> 
-                                            <div style="display: none;" class="col-xs-8 form-group">
-                                                <label class="form-control-static">Mes :</label>
-                                                <select class="form-control" id="opciones" name="opciones">
-                                                    <?php
-                                                    $q_mes = "SELECT * FROM `mes` where mes !='' ORDER BY `mes_id` desc ";
-                                                    $res_mes = mysqli_query($conn, $q_mes);
-                                                    echo "<option value='' selected='selected' disabled>Seleccióne</option>";
-                                                    while ($dt_mes = mysqli_fetch_array($res_mes)) {
-                                                        $id_m = $dt_mes['mes_id'];
-                                                        echo "<option value='" . $dt_mes['mes_id'] . '-' . $dt_mes['mes'] . "' >";
-                                                        echo $dt_id['mes_id'] . '      ' . utf8_decode($dt_mes['mes']);
-                                                        echo '</option>';
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <div class="form-control-static">
-                                                    <button type="submit" class="btn btn-default" id="submit" value="BUSCAR" name="submit" onclick="return buscar_ms();">BUSCAR</button>
-                                                    <button type="submit" class="btn btn-default" id="submit" value="TODO" name="submit" >TODO</button>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-success">
+                                                    <div class="panel-heading">
+                                                        Filtrar por fecha
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>
+                                                            <input type="text" autocomplete="off" placeholder="Fecha desde" class="form-control" id="datetimepicker1min" name="datetimepicker1min" value=""/>
+                                                            <script>
+                                                                jQuery.datetimepicker.setLocale('es');
+                                                                jQuery('#datetimepicker1min').datetimepicker({
+                                                                    i18n: {
+                                                                        de: {
+                                                                            months: [
+                                                                                'Enero', 'Febrero', 'Marzo', 'Abril',
+                                                                                'Mayo', 'Junio', 'Julio', 'Agosto',
+                                                                                'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
+                                                                            ],
+                                                                            dayOfWeek: [
+                                                                                "So.", "Mo", "Di", "Mi",
+                                                                                "Do", "Fr", "Sa.",
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    timepicker: false,
+                                                                    format: 'Y-m-d'
+                                                                });
+                                                            </script>
+
+                                                            <!--<label>Hasta :</label>-->
+                                                            <input type="text" autocomplete="off" placeholder="Fecha hasta" class="form-control" id="datetimepicker1max" name="datetimepicker1max" value=""/>
+                                                            <script>
+                                                                jQuery.datetimepicker.setLocale('es');
+                                                                jQuery('#datetimepicker1max').datetimepicker({
+                                                                    i18n: {
+                                                                        de: {
+                                                                            months: [
+                                                                                'Enero', 'Febrero', 'Marzo', 'Abril',
+                                                                                'Mayo', 'Junio', 'Julio', 'Agosto',
+                                                                                'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
+                                                                            ],
+                                                                            dayOfWeek: [
+                                                                                "So.", "Mo", "Di", "Mi",
+                                                                                "Do", "Fr", "Sa.",
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    timepicker: false,
+                                                                    format: 'Y-m-d'
+                                                                });
+                                                            </script>
+                                                            <br>
+                                                        <div class="form-group">
+                                                            <button type="submit" onclick="return cvereficarvalores(this)" class="btn btn-success" id="submit" name="submit" value="periodos">BUSCAR</button>
+                                                            <script>
+
+                                                                function cvereficarvalores() {
+
+                                                                    if (document.BalancedeComprobacion.datetimepicker1min.value.length == 0) {
+                                                                        alert("Seleccione desde que fecha buscar");
+                                                                        document.BalancedeComprobacion.datetimepicker1min.focus();
+                                                                        return false;
+                                                                    }
+
+                                                                    if (document.BalancedeComprobacion.datetimepicker1max.value.length == 0) {
+                                                                        alert("Seleccione hasta que fecha buscar");
+                                                                        document.BalancedeComprobacion.datetimepicker1max.focus();
+                                                                        return false;
+                                                                    }
+                                                                    document.BalancedeComprobacion.submit();
+                                                                    return true;
+
+                                                                }
+
+                                                                function cvereficarmes() {
+
+                                                                }
+
+                                                            </script>
+                                                        </div>
+                                                        </p>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-8 form-group">
-                                                <a href="cont_aj_ass.php" title="AJUSTES" class="glyphicon glyphicon-text-background"><i class=" btn btn-outline btn-info glyphicon glyphicon-edit"></i></a>
+
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        Acciones
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>
+                                                        <div style="display: none;" class="col-xs-8 form-group">
+                                                            <label class="form-control-static">Mes :</label>
+                                                            <select class="form-control" id="opciones" name="opciones">
+                                                                <?php
+                                                                $q_mes = "SELECT * FROM `mes` where mes !='' ORDER BY `mes_id` desc ";
+                                                                $res_mes = mysqli_query($conn, $q_mes);
+                                                                echo "<option value='' selected='selected' disabled>Seleccióne</option>";
+                                                                while ($dt_mes = mysqli_fetch_array($res_mes)) {
+                                                                    $id_m = $dt_mes['mes_id'];
+                                                                    echo "<option value='" . $dt_mes['mes_id'] . '-' . $dt_mes['mes'] . "' >";
+                                                                    echo $dt_id['mes_id'] . '      ' . utf8_decode($dt_mes['mes']);
+                                                                    echo '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                            <div class="form-control-static">
+                                                                <button type="submit" class="btn btn-default" id="submit" value="BUSCAR" name="submit" onclick="return buscar_ms();">BUSCAR</button>
+                                                                <button type="submit" class="btn btn-default" id="submit" value="TODO" name="submit" >TODO</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-8 form-group">
+                                                            <a href="cont_aj_ass.php" title="AJUSTES" class="glyphicon glyphicon-text-background"><i class=" btn btn-outline btn-info glyphicon glyphicon-edit"></i></a>
+                                                        </div>
+                                                        <div class="col-xs-8 form-group">
+                                                            <button type="submit" title="IMPRIMIR TODA LA SITUACION FINANCIERA" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blres(<?Php echo $idlogeobl; ?>)"></button>
+                                                        </div>
+                                                        </p>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-8 form-group">
-                                                <button type="submit" title="IMPRIMIR" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blres(<?Php echo $idlogeobl; ?>)"></button>
-                                            </div>
+
+                                            <!--                                            <div class="col-lg-4">
+                                                                                            <div style="float: left;" class="menu"> 
+                                                                                                <div style="display: none;" class="col-xs-8 form-group">
+                                                                                                    <label class="form-control-static">Mes :</label>
+                                                                                                    <select class="form-control" id="opciones" name="opciones">
+                                            <?php
+//                                                            $q_mes = "SELECT * FROM `mes` where mes !='' ORDER BY `mes_id` desc ";
+//                                                            $res_mes = mysqli_query($conn, $q_mes);
+//                                                            echo "<option value='' selected='selected' disabled>Seleccióne</option>";
+//                                                            while ($dt_mes = mysqli_fetch_array($res_mes)) {
+//                                                                $id_m = $dt_mes['mes_id'];
+//                                                                echo "<option value='" . $dt_mes['mes_id'] . '-' . $dt_mes['mes'] . "' >";
+//                                                                echo $dt_id['mes_id'] . '      ' . utf8_decode($dt_mes['mes']);
+//                                                                echo '</option>';
+//                                                            }
+                                            ?>
+                                                                                                    </select>
+                                                                                                    <div class="form-control-static">
+                                                                                                        <button type="submit" class="btn btn-default" id="submit" value="BUSCAR" name="submit" onclick="return buscar_ms();">BUSCAR</button>
+                                                                                                        <button type="submit" class="btn btn-default" id="submit" value="TODO" name="submit" >TODO</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-xs-8 form-group">
+                                                                                                    <a href="cont_aj_ass.php" title="AJUSTES" class="glyphicon glyphicon-text-background"><i class=" btn btn-outline btn-info glyphicon glyphicon-edit"></i></a>
+                                                                                                </div>
+                                                                                                <div class="col-xs-8 form-group">
+                                                                                                    <button type="submit" title="IMPRIMIR" class="btn btn-outline btn-info glyphicon glyphicon-print" onclick="imp_blres(<?Php echo $idlogeobl; ?>)"></button>
+                                                                                                </div>
+                                                                                            </div>                                                
+                                                                                        </div>-->
                                         </div>
                                         <center>
                                             <?Php
@@ -173,56 +311,62 @@ $contador_ass = $row_cont['CON'];
                                                     $opcion = $_POST['opciones'];
                                                     $pos_f = explode('-', $opcion);
                                                     $op = $pos_f[0];
-                                                    $mes= $pos_f[1];
+                                                    $mes = $pos_f[1];
 //                                                    echo '<script>alert("' . $mes . '")</script>';
                                                     $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where "
-                                                            . "codigo <='3.1.1.2.' and mes='".$mes."' ORDER BY codigo ASC";
+                                                            . "codigo <='3.1.1.2.' and mes='" . $mes . "' ORDER BY codigo ASC";
                                                     echo '<table width="100%" class="table table-striped table-bordered table-hover">';
-                                                echo "<br>";
-                                                echo '<tr>';
-                                                echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
-                                                echo '<td style="display:none"></td>';
-                                                echo '<td style="display:none"></td>';
-                                                echo '<td style="display:none"></td>';
-                                                echo '</tr>';
-                                                $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
-                                                while ($row2 = mysqli_fetch_array($resulgrupos)) {
-                                                    $str = strlen($row2['codigo']);
-                                                    echo '<tr>
+                                                    echo "<br>";
+                                                    echo '<tr>';
+                                                    echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
+                                                    echo '<td style="display:none"></td>';
+                                                    echo '<td style="display:none"></td>';
+                                                    echo '<td style="display:none"></td>';
+                                                    echo '</tr>';
+                                                    $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                                                    while ($row2 = mysqli_fetch_array($resulgrupos)) {
+                                                        $str = strlen($row2['codigo']);
+                                                        echo '<tr>
                                                         <td>' . $row2['codigo'] . '</td>
                                                         <td>' . $row2['cuenta'] . '</td>';
-                                                    if ($str == 2) {
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
-                                                        echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                    } elseif ($str == 4) {
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
-                                                        echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                        echo '<td></td>';
-                                                    } elseif ($str == 6) {
-                                                        echo '<td></td>';
-                                                        echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
-                                                    } elseif ($str == 8) {
-                                                        echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
-                                                        echo '<td></td>';
+                                                        if ($str == 2) {
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                        } elseif ($str == 4) {
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                            echo '<td></td>';
+                                                        } elseif ($str == 6) {
+                                                            echo '<td></td>';
+                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                        } elseif ($str == 8) {
+                                                            echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                        }
+                                                        echo '</tr>';
                                                     }
-                                                    echo '</tr>';
-                                                }
-                                                echo '</table>';
+                                                    echo '</table>';
                                                 }
                                                 if ($btntu == "TODO") {
                                                     
                                                 }
+                                                if ($btntu == "periodos") {
+                                                    $datetimepickermin = $_POST['datetimepicker1min'];
+                                                    $datetimepickermax = $_POST['datetimepicker1max'];
+                                                    require '../../Clases/filtroestadosituacion.php';
+                                                    $objFilEstRes = new filtroestadosituacion();
+                                                    $objFilEstRes->filtroporperiodos($datetimepickermin, $datetimepickermax, $dbi);
+                                                }
                                             } else {
                                                 ?>
                                                 <h1>Estado de Situaci&oacute;n Financiera</h1>
-                                                <?Php include '../../../Clases/acentos.php'; ?>
                                                 <h3>Al <?php echo $dia ?> de <?php echo translateMonth($mes) ?> del <?php echo $year ?></h3>
 
                                                 <div class="mensaje"></div>

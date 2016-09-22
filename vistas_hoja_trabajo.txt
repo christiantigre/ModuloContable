@@ -81,4 +81,44 @@ FROM `vistabalanceresultadosajustados`
 GROUP BY cod_cuenta
 
 
+--------------------------------------tablas agregadas-------------------------------------
+-----------------------1)TEMPORAL INGRESOS--------------------------------
+CREATE TABLE `tempingresos` (
+  `codigo` varchar(45) DEFAULT NULL,
+  `cuenta` char(255) DEFAULT NULL,
+  `s_deudor` char(255) DEFAULT NULL,
+  `s_acreedor` char(255) DEFAULT NULL,
+  `total` char(255) DEFAULT NULL,
+  `contabilidad` char(3) DEFAULT NULL,
+  `year` char(4) DEFAULT NULL,
+  `mes` char(2) DEFAULT NULL,
+  `fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-----------------------2)TEMPORAL GASTOS-------------------------------
+CREATE TABLE `tempgastos` (
+  `codigo` varchar(45) DEFAULT NULL,
+  `cuenta` char(255) DEFAULT NULL,
+  `s_deudor` char(255) DEFAULT NULL,
+  `s_acreedor` char(255) DEFAULT NULL,
+  `total` char(255) DEFAULT NULL,
+  `contabilidad` char(3) DEFAULT NULL,
+  `year` char(4) DEFAULT NULL,
+  `mes` char(2) DEFAULT NULL,
+  `fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-----------------3)TEMPORAL ESTADORESULTADOS--------------------------------
+create table  `tempestadoresultados` (
+codigo char(20),
+    cuenta char(100),
+    s_deudor double(11,2),
+    s_acreedor double(11,2),
+    total double(11,2),
+    contabilidad char(2),
+    year char(4),
+    mes char(2),
+    fecha date
+);
+
 
