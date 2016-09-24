@@ -34,7 +34,7 @@ class filtroestadosituacion {
         echo '<table width="100%" class="table table-striped table-bordered table-hover">';
         echo "<br>";
         echo '<tr>';
-        echo '<th colspan="5">';
+        echo '<th colspan="6">';
         ?>
         <?Php
         $position_f = explode('-', $fechadesde);
@@ -101,6 +101,7 @@ class filtroestadosituacion {
                 echo '<td></td>';
                 echo '<td></td>';
                 echo '<td></td>';
+                echo '<td></td>';
                 echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
 
                 for ($i = 0; $i <= count($numIng); $i++) {
@@ -109,18 +110,43 @@ class filtroestadosituacion {
             } elseif ($str == 4) {
                 echo '<td></td>';
                 echo '<td></td>';
+                echo '<td></td>';
                 echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                 echo '<td></td>';
             } elseif ($str == 6) {
+                echo '<td></td>';
                 echo '<td></td>';
                 echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                 echo '<td></td>';
                 echo '<td></td>';
             } elseif ($str == 8) {
+                echo '<td></td>';
                 echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                 echo '<td></td>';
                 echo '<td></td>';
                 echo '<td></td>';
+                $ctsmovimiento = "SELECT * FROM `agrupacion` WHERE subcuenta='" . $row2['codigo'] . "'";
+                $resulmv = mysqli_query($conn, $ctsmovimiento)or trigger_error("Query Failed! SQL: $ctsmovimiento - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                while ($row3 = mysqli_fetch_array($resulmv)) {
+                    echo '<tr>';
+                    echo '<td>' . $row3['referencia'] . '</td>';
+                    $cts = "SELECT nombre_cuenta_plan FROM `t_plan_de_cuentas` WHERE cod_cuenta='" . $row3['referencia'] . "'";
+                    $resulct = mysqli_query($conn, $cts)or trigger_error("Query Failed! SQL: $cts- Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                    while ($row4 = mysqli_fetch_array($resulct)) {
+                        echo '<td>' . $row4['nombre_cuenta_plan'] . '</td>';
+                    }
+                    if ($row3['deudor'] > $row3['acreedor']) {
+                        $total = $row3['deudor'];
+                    } elseif ($row3['acreedor'] > $row3['deudor']) {
+                        $total = ('-'.$row3['acreedor']);
+                    }
+                    echo '<td>' . number_format($total, 2, '.', '') . '</td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '<td></td>';
+                    echo '</tr>';
+                }
             }
             echo '</tr>';
         }

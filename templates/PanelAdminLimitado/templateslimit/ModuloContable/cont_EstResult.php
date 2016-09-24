@@ -40,7 +40,6 @@ $row_cont = mysqli_fetch_array($query_contador);
 $contador_ass = $row_cont['CON'];
 
 include '../../../Clases/acentos.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -314,7 +313,7 @@ include '../../../Clases/acentos.php';
                                                     $mes = $pos_f[1];
 //                                                    echo '<script>alert("' . $mes . '")</script>';
                                                     $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where "
-                                                            . "codigo <='3.1.1.2.' and mes='" . $mes . "' ORDER BY codigo ASC";
+                                                            . "codigo <='3.99.99.99.99' and mes='" . $mes . "' ORDER BY codigo ASC";
                                                     echo '<table width="100%" class="table table-striped table-bordered table-hover">';
                                                     echo "<br>";
                                                     echo '<tr>';
@@ -349,6 +348,16 @@ include '../../../Clases/acentos.php';
                                                             echo '<td></td>';
                                                             echo '<td></td>';
                                                             echo '<td></td>';
+                                                            $ctsmovimiento = "SELECT * FROM `agrupacion` WHERE subcuenta='" . $row2['codigo'] . "'";
+                                                            $resulmv = mysqli_query($conn, $ctsmovimiento)or trigger_error("Query Failed! SQL: $ctsmovimiento - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                                                            while ($row3 = mysqli_fetch_array($resulmv)) {
+                                                                echo '<td>' . $row3['codigo'] . '</td>';
+                                                                echo '<td>' . $row3['cuenta'] . '</td>';
+                                                                echo '<td>' . number_format($row3['total'], 2, '.', '') . '</td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                                echo '<td></td>';
+                                                            }
                                                         }
                                                         echo '</tr>';
                                                     }
@@ -382,41 +391,71 @@ include '../../../Clases/acentos.php';
                                                     echo "<script>alert('Ocurrio un error al cargar un parametro...')</script>";
                                                 }
 
-                                                echo '<table width="100%" class="table table-striped table-bordered table-hover">';
+                                                echo '<table width = "100%" class = "table table-striped table-bordered table-hover">';
                                                 echo "<br>";
                                                 echo '<tr>';
-                                                echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
-                                                echo '<td style="display:none"></td>';
-                                                echo '<td style="display:none"></td>';
-                                                echo '<td style="display:none"></td>';
+                                                echo '<th colspan = "3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
+                                                echo '<td style = "display:none"></td>';
+                                                echo '<td style = "display:none"></td>';
+                                                echo '<td style = "display:none"></td>';
                                                 echo '</tr>';
                                                 $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where codigo <='3.1.1.2.' ORDER BY codigo ASC";
                                                 $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
                                                 while ($row2 = mysqli_fetch_array($resulgrupos)) {
                                                     $str = strlen($row2['codigo']);
                                                     echo '<tr>
-                                                        <td>' . $row2['codigo'] . '</td>
-                                                        <td>' . $row2['cuenta'] . '</td>';
+                                                                <td>' . $row2['codigo'] . '</td>
+                                                                <td>' . $row2['cuenta'] . '</td>';
                                                     if ($str == 2) {
                                                         echo '<td></td>';
                                                         echo '<td></td>';
                                                         echo '<td></td>';
+                                                        echo '<td></td>';
                                                         echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
+
+                                                        for ($i = 0; $i <= count($numIng); $i++) {
+                                                            $datosIngreso[] = $row2['total'];
+                                                        }
                                                     } elseif ($str == 4) {
+                                                        echo '<td></td>';
                                                         echo '<td></td>';
                                                         echo '<td></td>';
                                                         echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                                                         echo '<td></td>';
                                                     } elseif ($str == 6) {
                                                         echo '<td></td>';
+                                                        echo '<td></td>';
                                                         echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                                                         echo '<td></td>';
                                                         echo '<td></td>';
                                                     } elseif ($str == 8) {
+                                                        echo '<td></td>';
                                                         echo '<td>' . number_format($row2['total'], 2, '.', '') . '</td>';
                                                         echo '<td></td>';
                                                         echo '<td></td>';
                                                         echo '<td></td>';
+                                                        $ctsmovimiento = "SELECT * FROM `agrupacion` WHERE subcuenta='" . $row2['codigo'] . "'";
+                                                        $resulmv = mysqli_query($conn, $ctsmovimiento)or trigger_error("Query Failed! SQL: $ctsmovimiento - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                                                        while ($row3 = mysqli_fetch_array($resulmv)) {
+                                                            echo '<tr>';
+                                                            echo '<td>' . $row3['referencia'] . '</td>';
+                                                            $cts = "SELECT nombre_cuenta_plan FROM `t_plan_de_cuentas` WHERE cod_cuenta='" . $row3['referencia'] . "'";
+                                                            $resulct = mysqli_query($conn, $cts)or trigger_error("Query Failed! SQL: $cts- Error: " . mysqli_error($mysqli), E_USER_ERROR);
+                                                            while ($row4 = mysqli_fetch_array($resulct)) {
+                                                                echo '<td>' . $row4['nombre_cuenta_plan'] . '</td>';
+                                                            }
+                                                            if ($row3['deudor'] > $row3['acreedor']) {
+                                                                $total = $row3['deudor'];
+                                                            } elseif ($row3['acreedor'] > $row3['deudor']) {
+                                                                $total = ('-' . $row3['acreedor']);
+                                                            }
+                                                            echo '<td>' . number_format($total, 2, '.', '') . '</td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '<td></td>';
+                                                            echo '</tr>';
+                                                        }
                                                     }
                                                     echo '</tr>';
                                                 }
