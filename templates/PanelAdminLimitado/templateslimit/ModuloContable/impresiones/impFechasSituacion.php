@@ -79,10 +79,10 @@ $meshastamx = $datemx[1];
 $yearhastamx = $datemx[0];
 if ($yeardesde == $yearhastamx) {
     $yearfiltro = $yeardesde;
-}else{
+} else {
     $yearfiltro = date('Y');
 }
-$pdf->Cell(0, 7, ' Del ' . $diadesde . ' de ' . MonthNumber($mesdesde) . ' Al '. $diahastamx.' de '. MonthNumber($meshastamx) .' del '. $yearfiltro, 0, 1, 'C');
+$pdf->Cell(0, 7, ' Del ' . $diadesde . ' de ' . MonthNumber($mesdesde) . ' Al ' . $diahastamx . ' de ' . MonthNumber($meshastamx) . ' del ' . $yearfiltro, 0, 1, 'C');
 $pdf->Cell(0, 8, 'Pagina ' . $pdf->PageNo(), 'T', 1, 'R');
 $pdf->Cell(0, 5, '', 'T', 1);
 $pdf->SetFont('Arial', 'B', 8);
@@ -104,11 +104,30 @@ while ($row3 = mysqli_fetch_array($sql_carga_balance)) {
             $datosIngreso[] = $row3['total'];
         }
     } elseif ($str == 4) {
-        $pdf->Cell(65, 0, round($row3['total'], 2, 1), 0, 1, 'R');
+        $pdf->Cell(75, 0, round($row3['total'], 2, 1), 0, 1, 'R');
     } elseif ($str == 6) {
-        $pdf->Cell(40, 0, round($row3['total'], 2, 1), 0, 1, 'R');
+        $pdf->Cell(60, 0, round($row3['total'], 2, 1), 0, 1, 'R');
     } elseif ($str == 8) {
-        $pdf->Cell(15, 0, round($row3['total'], 2, 1), 0, 1, 'R');
+        $pdf->Cell(45, 0, round($row3['total'], 2, 1), 0, 1, 'R');
+        $pdf->Ln(8);
+        $ctsmovimiento = "SELECT * FROM `agrupacion` WHERE subcuenta='" . $row3['codigo'] . "'";
+        $resulmv = mysqli_query($c, $ctsmovimiento)or trigger_error("Query Failed! SQL: $ctsmovimiento - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+        while ($row4 = mysqli_fetch_array($resulmv)) {
+            $pdf->Cell(15, 0, $row4['referencia'], 0);
+            $cts = "SELECT nombre_cuenta_plan FROM `t_plan_de_cuentas` WHERE cod_cuenta='" . $row4['referencia'] . "'";
+            $resulct = mysqli_query($c, $cts)or trigger_error("Query Failed! SQL: $cts- Error: " . mysqli_error($mysqli), E_USER_ERROR);
+            while ($row5 = mysqli_fetch_array($resulct)) {
+                $pdf->Cell(90, 0, $row5['nombre_cuenta_plan'], 20);
+//                $pdf->Ln(8);
+            }
+            if ($row4['deudor'] > $row4['acreedor']) {
+                $total = $row4['deudor'];
+            } elseif ($row4['acreedor'] > $row4['deudor']) {
+                $total = ('-' . $row4['acreedor']);
+            }
+            $pdf->Cell(35, 0, round($total, 2, 1), 0, 1, 'R');
+            $pdf->Ln(8);
+        }
     }
     $pdf->Ln(8);
 }
@@ -132,7 +151,7 @@ $pdf->Output();
 mysqli_close($db);
 mysqli_close($c);
 include '../../../Clases/guardahistorialimp.php';
-$accion = " / IMP / Impresion Situacion Final desde ".$datemin." hasta " . $datemax;
+$accion = " / IMP / Impresion Situacion Final desde " . $datemin . " hasta " . $datemax;
 generaLogs($variablerespo, $accion);
 ?>
 
