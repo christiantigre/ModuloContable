@@ -267,9 +267,9 @@ $contador_ass = $row_cont['CON'];
                                                                             return true;
 
                                                                         }
-                                                                        
-                                                                        function cvereficarmes(){
-                                                                            
+
+                                                                        function cvereficarmes() {
+
                                                                         }
 
                                                                     </script>
@@ -376,7 +376,7 @@ $contador_ass = $row_cont['CON'];
                                                     $dos = substr(strstr($opciones, '-'), 1);
 //                                                    echo '<script>alert("' . $dos . '")</script>';
                                                     ?>
-                                                    <h3>Por el mes de <?php echo translateMonth($dos) ?> del <?php echo $year ?></h3>
+
 
                                                     <input type="hidden" value="<?php echo $maxbalancedato; ?>" id="texto"/>
                                                     <input type="hidden" value="<?php echo $uno; ?>" id="mes"/>
@@ -395,13 +395,21 @@ $contador_ass = $row_cont['CON'];
                                                         echo "<script>alert('Ocurrio un error al cargar un parametro...')</script>";
                                                     }
                                                     echo '<table width="100%" class="table table-striped table-bordered table-hover">';
+
                                                     echo "<br>";
                                                     echo '<tr>';
-                                                    echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
+                                                    echo "<th colspan='3'> $cod_clasesq    $nom_clase  ";
+                                                    echo " <h3>Por el mes de ";
+                                                    echo translateMonth($dos);
+                                                    echo " del ";
+                                                    echo $year;
+                                                    echo "</h3>";
+                                                    echo '</th>';
                                                     echo '<td style="display:none"></td>';
                                                     echo '<td style="display:none"></td>';
                                                     echo '<td style="display:none"></td>';
                                                     echo '</tr>';
+
 
 //                                           SQL INGRESOS and mes<='8'
                                                     $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where codigo between '4.' and '4.99.99.99.' and mes='" . $uno . "' ORDER BY codigo ASC";

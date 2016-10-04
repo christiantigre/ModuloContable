@@ -12,6 +12,7 @@
 <input type="hidden" value="<?php echo $estado; ?>"/>
 <input type="hidden" value="<?php echo $uno; ?>" id="mes"/>
 <?Php
+$dd = date('d');
 $c = $dbi->conexion();
 $sqlparametro = " SELECT max( `idt_bl_inicial` ) AS cont FROM `t_bl_inicial`";
 $resul_param = $c->query($sqlparametro);
@@ -27,7 +28,7 @@ echo "<br>";
 echo '<tr>';
 echo '<th colspan="5">';
 ?>
-<h3>Al <?php echo $dia ?> de <?php echo translateMonth($mes) ?> del <?php echo $year ?></h3>
+<h3>Al <?php echo $dd ?> de <?php echo translateMonth($mes) ?> del <?php echo $year ?></h3>
 <?Php
 echo '</th>';
 echo '<th colspan="3">' . $cod_clasesq . ' ' . $nom_clase . '</th>';
