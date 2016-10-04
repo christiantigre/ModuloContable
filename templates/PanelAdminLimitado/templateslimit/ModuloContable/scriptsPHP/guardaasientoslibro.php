@@ -21,22 +21,20 @@ $dia; // Imprime 12
 $month; // Imprime 01
 $year; // Imprime 2005
 
-$ex_year = "SELECT max( year ) as yearcontabilidad FROM `t_bl_inicial`";
-$res_year = mysqli_query($con, $ex_year) or trigger_error("Query Failed! SQL: $query - Error: " . mysqli_error($mysqli), E_USER_ERROR);
-if ($res_year) {
-    while ($rowy = mysqli_fetch_assoc($res_year)) {
-        $yearcontabilidad = $rowy['yearcontabilidad'];
-    }
-}
-<<<<<<< HEAD
-
-if ($year != $yearcontabilidad) {
-    echo "No se puede ingresar un asiento con el periodo ".$year." fecha incorrecta";
-=======
-if ($year != $yearcontabilidad) {
-    echo "No se puede ingresar un asiento con el periodo " . $year . " fecha incorrecta";
->>>>>>> test
-} else {
+//$ex_year = "SELECT max( year ) as yearcontabilidad FROM `t_bl_inicial`";
+//$res_year = mysqli_query($con, $ex_year) or trigger_error("Query Failed! SQL: $query - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+//if ($res_year) {
+//    while ($rowy = mysqli_fetch_assoc($res_year)) {
+//        $yearcontabilidad = $rowy['yearcontabilidad'];
+//    }
+//}
+//
+//if ($year != $yearcontabilidad) {
+//    echo "No se puede ingresar un asiento con el periodo ".$year." fecha incorrecta";
+//if ($year != $yearcontabilidad) {
+//    echo "No se puede ingresar un asiento con el periodo " . $year . " fecha incorrecta";
+//
+//} else {
 
 
 
@@ -153,5 +151,5 @@ VALUES ('" . $incrementoej . "',
     }
 
     mysqli_close($con);
-}
+//}
 ?>
