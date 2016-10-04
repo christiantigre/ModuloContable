@@ -28,9 +28,14 @@ if ($res_year) {
         $yearcontabilidad = $rowy['yearcontabilidad'];
     }
 }
+<<<<<<< HEAD
 
 if ($year != $yearcontabilidad) {
     echo "No se puede ingresar un asiento con el periodo ".$year." fecha incorrecta";
+=======
+if ($year != $yearcontabilidad) {
+    echo "No se puede ingresar un asiento con el periodo " . $year . " fecha incorrecta";
+>>>>>>> test
 } else {
 
 
