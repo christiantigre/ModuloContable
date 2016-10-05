@@ -570,16 +570,28 @@ group by e.`t_bl_inicial_idt_bl_inicial`";
                     <td class="center"><?Php echo $mes ?></td>
                     <td class="center"><?Php echo $concep ?></td>
                     <td class="center"><?Php
-                        $qryass_cuad = 'SELECT sum(debe) as debe, sum(haber) as haber FROM `libro` WHERE asiento="' . $asiento . '" ';
+                    $qryass_cuad = "SELECT sum( j.valor ) AS debe, sum( j.valorp ) AS haber
+FROM t_ejercicio j join num_asientos n
+WHERE j.ejercicio=n.t_ejercicio_idt_corrientes
+AND n.idnum_asientos=" . $asiento . " AND j.t_bl_inicial_idt_bl_inicial='" . $maxbalancedato . "' AND j.year = '" . $year . "' ";
+//                        $qryass_cuad = 'SELECT sum(valor) as debe, sum(valorp) as haber FROM `t_ejercicio` WHERE ejercicio="' . $asiento . '" ';
                         $ej_ass = $dbi->execute($qryass_cuad);
                         while ($rw_ass = $dbi->fetch_row($ej_ass)) {
                             $debe_ass = $rw_ass['debe'];
                             $haber_ass = $rw_ass['haber'];
                             if ($debe_ass == $haber_ass) {
-                                echo "Cuadrado";
-                            } else {
-                                echo "Descuadrado";
-                            }
+                            echo "<p class='btn-success'>";
+                            echo "(D)".$debe_ass;
+                            echo "<br />";
+                            echo "(H)".$haber_ass;
+                            echo "</p>";
+                        } else {
+                            echo "<p class='btn-danger'>";
+                            echo "(D)".$debe_ass;
+                            echo "<br />";
+                            echo "(H)".$haber_ass;
+                            echo "</p>";
+                        }
                         }
                         ?></td>
                     <td class="center"><button type="button" title="VIEW" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-info glyphicon glyphicon-eye-open " onclick="detall_asini(<?Php echo $a; ?>);"></button></td>
