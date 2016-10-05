@@ -67,18 +67,9 @@ SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`
 
 6)------------------------------------------VISTA DE GASTOS------------------------------------------------
 CREATE VIEW gastos AS
-CREATE VIEW ingresos AS
 SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
  estadoresultados where codigo between '5.' and '5.99.99.99.' ORDER BY codigo ASC
 
-------------------------------------------OPCIONAL HOJA DE TRABAJO SIN CALCULOS DE RESULTADOS------------
-vista sin calculo final
-create view hoja_de_trabajo as
-SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
-`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` , `mes` , 
- sum( `slddeudor_aj` + `sld_deudor` ) AS sum_deudor, sum( `sldacreedor_aj` + `sld_acreedor` ) AS sum_acreedor
-FROM `vistabalanceresultadosajustados`
-GROUP BY cod_cuenta
 
 
 --------------------------------------tablas agregadas-------------------------------------
@@ -120,5 +111,15 @@ codigo char(20),
     mes char(2),
     fecha date
 );
+
+
+------------------------------------------OPCIONAL HOJA DE TRABAJO SIN CALCULOS DE RESULTADOS------------
+vista sin calculo final
+create view hoja_de_trabajo as
+SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
+`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` , `mes` , 
+ sum( `slddeudor_aj` + `sld_deudor` ) AS sum_deudor, sum( `sldacreedor_aj` + `sld_acreedor` ) AS sum_acreedor
+FROM `vistabalanceresultadosajustados`
+GROUP BY cod_cuenta
 
 
