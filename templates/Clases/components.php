@@ -529,6 +529,7 @@ group by e.`t_bl_inicial_idt_bl_inicial`";
                     <th>Fecha</th>
                     <th>Mes</th>
                     <th>Concepto</th>
+                    <th>Estado</th>
                     <th>VER</th>
                     <th>EDITAR</th>
                     <th>PDF</th>
@@ -568,6 +569,19 @@ group by e.`t_bl_inicial_idt_bl_inicial`";
                     <td><?Php echo $fecha ?></td>
                     <td class="center"><?Php echo $mes ?></td>
                     <td class="center"><?Php echo $concep ?></td>
+                    <td class="center"><?Php
+                        $qryass_cuad = 'SELECT sum(debe) as debe, sum(haber) as haber FROM `libro` WHERE asiento="' . $asiento . '" ';
+                        $ej_ass = $dbi->execute($qryass_cuad);
+                        while ($rw_ass = $dbi->fetch_row($ej_ass)) {
+                            $debe_ass = $rw_ass['debe'];
+                            $haber_ass = $rw_ass['haber'];
+                            if ($debe_ass == $haber_ass) {
+                                echo "Cuadrado";
+                            } else {
+                                echo "Descuadrado";
+                            }
+                        }
+                        ?></td>
                     <td class="center"><button type="button" title="VIEW" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-info glyphicon glyphicon-eye-open " onclick="detall_asini(<?Php echo $a; ?>);"></button></td>
                     <td class="center"><a class="btn btn-outline btn-info glyphicon glyphicon-wrench " title="UPDATE" href="./templateslimit/ModuloContable/up_ass_in.php?id_asientourl=<?Php echo $asiento ?>&fechaurl=<?Php echo $fecha ?>" onclick="listar();" ></a></td>
                     <td class="center"><button type="submit" title="PRINT" class="btn btn-outline btn-danger " onclick="imp_assin(<?Php echo $a; ?>)"><img src="../../images/pdf.png" width="30" height="30" alt="pdf"/></button></td>
@@ -588,6 +602,28 @@ group by e.`t_bl_inicial_idt_bl_inicial`";
                 <td><?Php echo $fecha ?></td>
                 <td class="center"><?Php echo $mes ?></td>
                 <td class="center"><?Php echo $concep ?></td>
+                <td class="center"><?Php
+                    $qryass_cuad = 'SELECT sum(debe) as debe, sum(haber) as haber FROM `libro` WHERE asiento="' . $asiento . '" ';
+                    $ej_ass = $dbi->execute($qryass_cuad);
+                    while ($rw_ass = $dbi->fetch_row($ej_ass)) {
+                        $debe_ass = $rw_ass['debe'];
+                        $haber_ass = $rw_ass['haber'];
+
+                        if ($debe_ass == $haber_ass) {
+                            echo "<p class='btn-success'>";
+                            echo "(D)".$debe_ass;
+                            echo "<br />";
+                            echo "(H)".$haber_ass;
+                            echo "</p>";
+                        } else {
+                            echo "<p class='btn-danger'>";
+                            echo "(D)".$debe_ass;
+                            echo "<br />";
+                            echo "(H)".$haber_ass;
+                            echo "</p>";
+                        }
+                    }
+                    ?></td>
                 <td class="center"><button type="button" data-toggle="modal" title="VIEW" data-target="#myModal" class="btn btn-outline btn-info glyphicon glyphicon-eye-open " onclick="detall_asin(<?Php echo $b; ?>);"></button></td>
                 <td class="center"><a class="btn btn-outline btn-info glyphicon glyphicon-wrench" title="UPDATE" href="./templateslimit/ModuloContable/up_ass.php?id_asientourl=<?Php echo $asiento ?>&fechaurl=<?Php echo $fecha ?>" onclick="listar();" ></a></td>
                 <td class="center"><button type="submit" class="btn btn-outline btn-danger " title="PRINT" onclick="imp_assin_ass(<?Php echo $b; ?>)"><img src="../../images/pdf.png" width="30" height="30" alt="pdf"/></button></td>
@@ -633,8 +669,8 @@ group by e.`t_bl_inicial_idt_bl_inicial`";
             <thead>
                 <tr>
                     <th colspan="5" class="center text-center danger">Ref : <?Php
-            echo $ass;
-            ?> 
+                        echo $ass;
+                        ?> 
                         <input type="hidden" id="fecha_<?Php echo $a; ?>" name="fecha_<?Php echo $a; ?>" value="<?Php echo $fech; ?>" />
                         <input type="hidden" id="ass_<?Php echo $a; ?>" name="ass_<?Php echo $a; ?>" value="<?Php echo $ass; ?>" />
                         <button type="button" data-toggle="modal" data-target="#myModal" 
