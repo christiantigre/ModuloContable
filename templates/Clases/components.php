@@ -615,7 +615,7 @@ AND n.idnum_asientos=" . $asiento . " AND j.t_bl_inicial_idt_bl_inicial='" . $ma
                 <td class="center"><?Php echo $mes ?></td>
                 <td class="center"><?Php echo $concep ?></td>
                 <td class="center"><?Php
-                    $qryass_cuad = 'SELECT sum(debe) as debe, sum(haber) as haber FROM `libro` WHERE asiento="' . $asiento . '" ';
+                    $qryass_cuad = 'SELECT sum(debe) as debe, sum(haber) as haber FROM `libro` WHERE asiento='.$asiento;
                     $ej_ass = $dbi->execute($qryass_cuad);
                     while ($rw_ass = $dbi->fetch_row($ej_ass)) {
                         $debe_ass = $rw_ass['debe'];
