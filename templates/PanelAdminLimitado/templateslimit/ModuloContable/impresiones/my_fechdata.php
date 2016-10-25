@@ -77,7 +77,7 @@ $sql_my = "SELECT v.`fecha` , v.`cod_cuenta` , v.`cuenta` , v.`valor` , v.`valor
             . " JOIN num_asientos n WHERE v.fecha "
             . "BETWEEN '".$fechai."' and '".$fechaf."' and v.ejercicio = n.t_ejercicio_idt_corrientes "
             . "AND v.`t_bl_inicial_idt_bl_inicial` = n.t_bl_inicial_idt_bl_inicial and "
-            . "v.t_bl_inicial_idt_bl_inicial='".$bl."' AND v.year = '".$year."' ";
+            . "v.t_bl_inicial_idt_bl_inicial='".$bl."' AND v.year = '".$year."' ORDER BY v.fecha ASC";
 
 $sqlcargaconcepto = mysqli_query($db, $sql_my);
 

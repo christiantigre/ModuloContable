@@ -72,13 +72,13 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 
 $sql_my = "SELECT v.`fecha` , v.`cuenta` as c , v.`valor` , v.`valorp` , v.`t_bl_inicial_idt_bl_inicial` , v.ejercicio AS j, n.concepto FROM `v_mayorizacionaux` v JOIN num_asientos n WHERE v.ejercicio = n.t_ejercicio_idt_corrientes AND v.`t_bl_inicial_idt_bl_inicial` = n.t_bl_inicial_idt_bl_inicial "
-        . "and v.t_bl_inicial_idt_bl_inicial='" . $bl . "' AND v.cod_cuenta = '" . $cta . "' AND v.year = '" . $year . "'";
+        . "and v.t_bl_inicial_idt_bl_inicial='" . $bl . "' AND v.cod_cuenta = '" . $cta . "' AND v.year = '" . $year . "' ORDER BY v.fecha ASC";
 $sqlcargaconcepto = mysqli_query($db, $sql_my);
 
 $sqlaj = "SELECT v.`fecha` , v.`cod_cuenta` , v.`cuenta` , v.`debe` , v.`haber` , v.`balance` , v.ejercicio AS j,"
         . " n.concepto FROM `vmayorizacionajustes` v JOIN num_asientos_ajustes n WHERE "
         . "v.ejercicio = n.t_ejercicio_idt_corrientes AND v.`balance` = n.t_bl_inicial_idt_bl_inicial and"
-        . " v.balance='" . $bl . "' AND v.cod_cuenta = '" . $cta . "' AND v.year = '" . $year . "'";
+        . " v.balance='" . $bl . "' AND v.cod_cuenta = '" . $cta . "' AND v.year = '" . $year . "' ORDER BY v.fecha ASC";
                                                     $resulaj = mysqli_query($db, $sqlaj);
 
 $result_d_m_mayor = mysqli_query($db, "SELECT sum((COALESCE(debe_aj, 0) + COALESCE(debe, 0))) as debe, 
