@@ -1,0 +1,37 @@
+VISTA CON CALCULO FINAL
+create view hoja_de_trabajo_cj as
+SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
+`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` , `mes` 
+, (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 ) - coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 ) ) AS sum_deudor,
+ concat('0.00') as sum_acreedor FROM `vistabalanceresultadosajustados` GROUP BY cod_cuenta HAVING (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 )) > (coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 ))
+UNION
+SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
+`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` , `mes` ,
+concat('0.00') as sum_deudor, 
+(coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 )) - (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 ) ) AS sum_acreedor 
+FROM `vistabalanceresultadosajustados` GROUP BY cod_cuenta HAVING
+(coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 )) > (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 ))
+UNION
+SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
+`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` ,
+ `mes` , concat('0.00') AS sum_deudor, concat('0.00') AS sum_acreedor FROM `vistabalanceresultadosajustados` GROUP BY cod_cuenta HAVING (coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 )) = (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 ))
+
+
+VISTA SUMAS DE CLASES
+CREATE VIEW SumasClases AS SELECT c.cod_clase as codigo,c.nombre_clase as CUENTA, sum(sum_deudor) as sumadeudor, SUM(sum_acreedor) as sumaacreedor FROM hoja_de_trabajo hj join t_grupo g join t_clase c where hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP BY c.cod_clase
+
+VISTA SUMAS DE GRUPOS
+create view sumasgrupos as
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta,sum(hj.`sum_deudor`) deudor,sum(hj.`sum_acreedor`) acreedor FROM `hoja_de_trabajo` hj join t_grupo g join t_clase c 
+WHERE hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP BY g.cod_grupo
+
+VISTA SUMAS DE CUENTAS
+CREATE VIEW sumascuentas AS SELECT ct.cod_cuenta as codigo,ct.nombre_cuenta as cuenta, sum(hj.sum_deudor) as sumadeudor, SUM(hj.sum_acreedor) as sumaacreedor FROM hoja_de_trabajo hj join t_grupo g JOIN t_clase c join t_cuenta ct where hj.tipo = g.cod_grupo and ct.t_grupo_cod_grupo = g.cod_grupo group by hj.tipo
+
+vista sin calculo final
+create view hoja_de_trabajo as
+SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `slddeudor_aj` , `sldacreedor_aj` , `grupo_aj` , `year_aj` , `mes_aj` , 
+`balance_aj` , `fecha` , `cod_cuenta` , `cuenta` , `debe` , `haber` , `t_bl_inicial_idt_bl_inicial` , `tipo` , `sld_deudor` , `sld_acreedor` , `year` , `mes` , 
+ sum( `slddeudor_aj` + `sld_deudor` ) AS sum_deudor, sum( `sldacreedor_aj` + `sld_acreedor` ) AS sum_acreedor
+FROM `vistabalanceresultadosajustados`
+GROUP BY cod_cuenta

@@ -131,7 +131,7 @@ VALUES ('".$incrementoej."',
 }
 
 include '../../Clases/guardahistorial.php';
-    $accion=" / ADD ASIENTOS / Guardo ass ".$asiento_num;
+    $accion=" / CREAR ASIENTOS / REGISTR ASIENTO # ".$asiento_num;
     generaLogs($user, $accion);
 
 if (mysqli_connect_errno()) {

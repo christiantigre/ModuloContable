@@ -1,0 +1,49 @@
+sumas de clases unicas
+SELECT c.nombre_clase as CUENTA, sum(sum_deudor) as sumadeudor, SUM(sum_acreedor) as sumaacreedor FROM
+ hoja_de_trabajo hj join t_grupo g join t_clase c where hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase AND c.cod_clase = '3.'
+sumas de grupos unicos
+SELECT g.nombre_grupo as CUENTA, sum(sum_deudor) as sumadeudor, SUM(sum_acreedor) as sumaacreedor FROM
+ hoja_de_trabajo hj join t_grupo g join t_clase c where hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and g.cod_grupo = '1.1.'
+
+sumas de todas las clases
+SELECT c.cod_clase as codigo,c.nombre_clase as CUENTA, sum(sum_deudor) as sumadeudor, SUM(sum_acreedor) as sumaacreedor FROM
+ hoja_de_trabajo hj join t_grupo g join t_clase c where hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP BY
+ c.cod_clase
+ sumas de todos los grupos
+ SELECT g.cod_grupo as codigo,g.nombre_grupo as CUENTA, sum(hj.sum_deudor) as sumadeudor, SUM(hj.sum_acreedor) as sumaacreedor FROM `hoja_de_trabajo` hj join t_grupo g JOIN t_clase c where hj.tipo = g.cod_grupo group by hj.tipo
+ 
+ 
+ SELECT c.cod_clase as codigo,c.nombre_clase as cuenta, sum(hj.sum_deudor) as sumadeudor, SUM(hj.sum_acreedor) as sumaacreedor FROM hoja_de_trabajo hj join t_grupo g join t_clase c where hj.tipo = g.cod_grupo GROUP BY c.cod_clase 
+
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta,sum(hj.`sum_deudor`) deudor,sum(hj.`sum_acreedor`) acreedor FROM `hoja_de_trabajo` hj join t_grupo g join t_clase c 
+WHERE hj.tipo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP BY g.cod_grupo
+
+SELECT ct.cod_cuenta as codigo,ct.nombre_cuenta as cuenta, sum(hj.sum_deudor) as sumadeudor, SUM(hj.sum_acreedor) as sumaacreedor FROM hoja_de_trabajo hj join t_grupo g JOIN t_clase c join t_cuenta ct where hj.tipo = g.cod_grupo and ct.t_grupo_cod_grupo = g.cod_grupo group by hj.tipo
+
+SELECT s.cod_subcuenta as codigo,s.nombre_subcuenta as cuenta, sum(hj.sum_deudor) as sumadeudor, SUM(hj.sum_acreedor) as sumaacreedor FROM hoja_de_trabajo hj join t_clase c join t_grupo g join t_cuenta ct join t_subcuenta s 
+where 
+hj.cod_cuenta = s.cod_subcuenta and
+s.t_cuenta_cod_cuenta = ct.cod_cuenta 
+group by s.cod_subcuenta
+
+AGRUPACION DE CUNENTAS TOTALIZADAS
+CREATE VIEW AGRUPACION AS 
+SELECT hj.cod_cuenta as referencia,pl.t_clase_cod_clase as clase,pl.t_grupo_cod_grupo as grupo, pl.t_cuenta_cod_cuenta as cuenta,pl.t_subcuenta_cod_subcuenta as subcuenta,pl.t_auxiliar_cod_cauxiliar as auxiliar, pl.t_subauxiliar_cod_subauxiliar as subauxiliar, sum(hj.sum_deudor) as deudor, sum(hj.sum_acreedor) as acreedor FROM `hoja_de_trabajo` hj join t_plan_de_cuentas pl where hj.cod_cuenta = pl.cod_cuenta group by hj.cod_cuenta
+
+prueba
+CREATE VIEW sumasdeclases AS 
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, sum(ag.`deudor`) as deudor, sum(ag.`acreedor`) as acreedor,(coalesce( ag.`deudor` , 0 )) - ( coalesce( ag.`acreedor` , 0 )) AS total FROM `agrupacion` ag join t_clase c join t_grupo gr WHERE ag.grupo = gr.cod_grupo and gr.t_clase_cod_clase = c.cod_clase GROUP BY c.cod_clase HAVING (deudor > acreedor)
+UNION
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, sum(ag.`deudor`) as deudor, sum(ag.`acreedor`) as acreedor,(coalesce( ag.`acreedor` , 0 )) - ( coalesce( ag.`deudor` , 0 )) AS total FROM `agrupacion` ag join t_clase c join t_grupo gr WHERE ag.grupo = gr.cod_grupo and gr.t_clase_cod_clase = c.cod_clase GROUP BY c.cod_clase HAVING (acreedor > deudor)
+UNION
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, sum(ag.`deudor`) as deudor, sum(ag.`acreedor`) as acreedor,concat('0,00') AS total FROM `agrupacion` ag join t_clase c join t_grupo gr WHERE ag.grupo = gr.cod_grupo and gr.t_clase_cod_clase = c.cod_clase GROUP BY c.cod_clase HAVING (deudor = acreedor)
+
+
+obtiene las clases ya sumadas
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
+ontiene sumas de grupos ya sumadas 
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
+obtiene las cuentas ya sumadas
+SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
+obtiene las subcuentas ya sumadas
+SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta
