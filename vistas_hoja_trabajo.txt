@@ -20,7 +20,7 @@ SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `sl
  `mes` , concat('0.00') AS sum_deudor, concat('0.00') AS sum_acreedor FROM `vistabalanceresultadosajustados` GROUP BY cod_cuenta HAVING (coalesce( `sldacreedor_aj` , 0 )) + ( coalesce( `sld_acreedor` , 0 )) = (coalesce( `slddeudor_aj` , 0 )) + ( coalesce( `sld_deudor` , 0 ))
 
 vista agrupacion correccion
-2)-----------------------------------------CREA LA AGRUPACION DE CUNETAS MAYORIZADAS--------------------
+2)-----------------------------------------CREA LA AGRUPACION DE CUENTAS MAYORIZADAS--------------------
 CREATE VIEW AGRUPACION AS SELECT hj.cod_cuenta as referencia,c.cod_clase as clase,pl.t_grupo_cod_grupo as grupo,
  pl.t_cuenta_cod_cuenta as cuenta,pl.t_subcuenta_cod_subcuenta as subcuenta,pl.t_auxiliar_cod_cauxiliar as auxiliar,
  pl.t_subauxiliar_cod_subauxiliar as subauxiliar, sum(hj.sum_deudor) as deudor, sum(hj.sum_acreedor) as acreedor,hj.t_bl_inicial_idt_bl_inicial as contabilidad,hj.year,hj.fecha,CASE mes

@@ -2,6 +2,7 @@
 error_reporting(0);
 error_reporting == E_ALL & ~E_NOTICE & ~E_DEPRECATED;
 session_start();
+ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 if (!$_SESSION) {
     echo '<script language = javascript>
 alert("usuario no autenticado")

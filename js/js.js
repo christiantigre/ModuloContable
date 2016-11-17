@@ -654,6 +654,9 @@ function imp_blres(id) {
 //    window.open('./impresiones/impbalanceresultados.php?prmlg=' + id);
     window.open('./impresiones/impSituacionFinanciera.php?prmlg=' + id);
 }
+function imp_blgenerado(id) {
+    window.open('./impresiones/BalanceGenerado.php?prmlg=' + id);
+}
 function imp_blresUtil(id) {
     var mes = $("#mes").val();
     if (!isFinite(mes)) {
@@ -1248,7 +1251,12 @@ function rr_agregar_new_ass() {
         }
     }
 }
-
+function exp_bl_generado(id) {
+    var tar = $("#tar").val();
+    var fh = $("#fh").val();
+    window.open('../../../../templates/PanelAdminLimitado/templateslimit/ModuloContable/documentos/export/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    u_link&413&vlink*data_kykwww=121&key=00.003&tar=' + tar + '&year=2010&fh=' + fh);
+}
 function exp_wd_num_as(id) {
     var tar = $("#tar").val();
     var fh = $("#fh").val();

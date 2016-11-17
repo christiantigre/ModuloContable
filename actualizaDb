@@ -1,0 +1,2 @@
+clona tablas con su estrutura y los datos
+CREATE TABLE clone_select SELECT * FROM tabla_origen;
