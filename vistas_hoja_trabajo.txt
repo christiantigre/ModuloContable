@@ -54,18 +54,26 @@ SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as
 4)-------------------------------------MUESTRA EL ESTADO DE RESULTADOS-----------------------------
 VISTA ESTADO DE RESULTADOS
 CREATE VIEW estadoresultados AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo>'3.99.99.99' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.99.99.99' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` GROUP by codigo HAVING `s_acreedor` = `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.99.99.99' GROUP by codigo HAVING `s_acreedor` = `s_deudor`
 
-5)------------------------------------------VISTA DE INGRESOS----------------------------------------------
+5)-------------------------SITUACION FINAL--------------------
+CREATE VIEW situacionfinal AS 
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo<='3.99.99.99' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+UNION
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.99.99.99' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+UNION
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.99.99.99' GROUP by codigo HAVING `s_acreedor` = `s_deudor`
+
+6)------------------------------------------VISTA DE INGRESOS----------------------------------------------
 CREATE VIEW ingresos AS
 SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
  estadoresultados where codigo between '4.' and '4.99.99.99.' ORDER BY codigo ASC
 
-6)------------------------------------------VISTA DE GASTOS------------------------------------------------
+7)------------------------------------------VISTA DE GASTOS------------------------------------------------
 CREATE VIEW gastos AS
 SELECT `codigo`,`cuenta`,`s_deudor`,`s_acreedor`,`total`,`contabilidad`,`year`,`mes`,REPLACE(fecha,'/','-') as fecha FROM
  estadoresultados where codigo between '5.' and '5.99.99.99.' ORDER BY codigo ASC
@@ -101,6 +109,19 @@ CREATE TABLE `tempgastos` (
 
 -----------------3)TEMPORAL ESTADORESULTADOS--------------------------------
 create table  `tempestadoresultados` (
+codigo char(20),
+    cuenta char(100),
+    s_deudor double(11,2),
+    s_acreedor double(11,2),
+    total double(11,2),
+    contabilidad char(2),
+    year char(4),
+    mes char(2),
+    fecha date
+);
+
+-------------4)situacion final temporal-------
+create table  `tempsituacionfinal` (
 codigo char(20),
     cuenta char(100),
     s_deudor double(11,2),
