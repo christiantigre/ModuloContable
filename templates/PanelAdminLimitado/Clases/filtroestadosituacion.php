@@ -70,14 +70,14 @@ class filtroestadosituacion {
 
 
 //        crea tabla temporal ingresos con fecha formateada
-        $select_fecha = "SELECT * FROM estadoresultados";
+        $select_fecha = "SELECT * FROM situacionfinal";
         $resulfecha = mysqli_query($conn, $select_fecha)or trigger_error("Query Failed! SQL: $select_fecha - Error: " . mysqli_error($conn), E_USER_ERROR);
         while ($rowfch = mysqli_fetch_array($resulfecha)) {
             $originalDate = $rowfch['fecha'];
             $fecha_explode = str_replace("/", '-', $originalDate);
 //            echo $fecha_explode;
             $newDate = date("Y-m-d", strtotime($fecha_explode));
-            $insert = mysqli_query($conn, "INSERT INTO `tempestadoresultados` ("
+            $insert = mysqli_query($conn, "INSERT INTO `tempsituacionfinal` ("
                     . "`codigo`, `cuenta`, `s_deudor`, `s_acreedor`, `total`, `contabilidad`, `year`, `mes`, `fecha`) VALUES ("
                     . "'" . $rowfch['codigo'] . "', '" . $rowfch['cuenta'] . "', '" . $rowfch['s_deudor'] . "', '" . $rowfch['s_acreedor'] . "', '" . $rowfch['total'] . "', '" . $rowfch['contabilidad'] . "', '" . $rowfch['year'] . "', '" . $rowfch['mes'] . "', '" . $newDate . "');");
         }
@@ -87,7 +87,7 @@ class filtroestadosituacion {
         $desde = date("Y-m-d", strtotime($fechadesde));
         $hasta = date("Y-m-d", strtotime($fechahasta));
 
-        $select_ct = "SELECT * FROM tempestadoresultados where fecha between '" . $desde . "' and '" . $hasta . "' and codigo <='3.1.1.2.' ORDER BY codigo ASC";
+        $select_ct = "SELECT * FROM tempsituacionfinal where fecha between '" . $desde . "' and '" . $hasta . "' and codigo <='3.1.1.2.' ORDER BY codigo ASC";
         $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
 
         $datosIngreso = array();

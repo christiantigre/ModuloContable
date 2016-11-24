@@ -158,6 +158,9 @@ class menus {
                     <a href=""><i class="fa fa-wrench fa-fw"></i> Configuracion <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
+                            <a href="<?Php echo $carpetas ?>templates/PaneldeAdministrador/configuracion/confemp.php"><i class="glyphicon glyphicon-data"></i> Database</a>
+                        </li>
+                        <li>
                             <a href="<?Php echo $carpetas ?>templates/PaneldeAdministrador/configuracion/confemp.php"><i class="glyphicon glyphicon-wrench"></i> Confiruraci&oacute;n</a>
                         </li>
                         <li>
