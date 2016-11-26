@@ -216,7 +216,7 @@ $contador_ass = $row_cont['CON'];
                                                 AND p.cod_cuenta = v.cod_cuenta
                                                 AND v.year = '" . $year . "'
                                                 AND v.t_bl_inicial_idt_bl_inicial = '" . $maxbalancedato . "'
-                                                ORDER BY tipo";
+                                                ORDER BY v.cod_cuenta asc";
                                                 ?>
 
                                                 <center>
@@ -236,22 +236,36 @@ $contador_ass = $row_cont['CON'];
                                                         //<input readonly="readonly" class="form-control info" type="text" name="campo1[]" id="fecha" value=' . $date . '>
                                                     //</div></td>';
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo1[]" id="fecha" value=' . $date . '></td>';
-                                                            echo '<td><div class="col-xs-7 form-group has-success">
+                                                            if ($r2['codcuenta']=='') {
+                                                                echo '<td><div class="col-xs-7 form-group has-danger">
+                                                            <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value="" placeholder="----SIN CODIGO----">
+                                                        </div></td>';
+                                                            } else {
+                                                                echo '<td><div class="col-xs-7 form-group has-success">
                                                             <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value=' . $r2['codcuenta'] . '>
                                                         </div></td>';
+                                                            }                                                            
+                                                            
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value=' . $r2['codcuenta'] . '></td>';
-                                                        echo '<td><div class="col-xs-14 form-group has-success">
+                                                            if ($r2['cuenta']=='') {
+                                                                echo '<td><div class="col-xs-14 form-group has-warning">
+                                                        <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="" placeholder="----SIN NOMBRE----">
+                                                    </div></td>';
+                                                            } else {
+                                                                echo '<td><div class="col-xs-14 form-group has-success">
                                                         <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="' . $r2['cuenta'] . '">
                                                     </div></td>';
+                                                            }                                                            
+                                                        
 //                                                        echo '<td>';
 //                                                        echo '<input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" style="width: 220px;" value="' . $r2['cuenta'] . '">';
 //                                                        echo '</td>';
                                                     echo '<td><div class="col-xs-8 form-group has-success">
-                                                    <input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . $r2['sum_deudor'] . '>
+                                                    <input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . number_format($r2['sum_deudor'], 2, '.', '') . '>
                                                 </div></td>';
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . $r2['sum_deudor'] . '></td>';
                                                 echo '<td><div class="col-xs-8 form-group has-success">
-                                                <input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' . $r2['sum_acreedor'] . '>
+                                                <input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' .number_format($r2['sum_acreedor'], 2, '.', '') . '>
                                             </div></td>';
 
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' . $r2['sum_acreedor'] . '></td>';

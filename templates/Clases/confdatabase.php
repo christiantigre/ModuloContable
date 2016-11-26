@@ -55,8 +55,10 @@ class Confdatabase {
         $r_dhj = mysqli_query($conn, $d_hj) or trigger_error("Query Failed! SQL: $d_hj - Error: ".mysqli_error($conn),E_USER_ERROR);
         $d_ag='DROP VIEW IF EXISTS agrupacion';
         $r_ag = mysqli_query($conn, $d_ag) or trigger_error("Query Failed! SQL: $d_ag - Error: ".mysqli_error($conn),E_USER_ERROR);
-        $d_sa='DROP VIEW IF EXISTS sumatoriadeagrupacion';
+        $d_sa='DROP VIEW IF EXISTS sumatoriadeagrupacionestres';
         $r_sa = mysqli_query($conn, $d_sa) or trigger_error("Query Failed! SQL: $d_sa - Error: ".mysqli_error($conn),E_USER_ERROR);
+        $d_safn='DROP VIEW IF EXISTS sumatoriadeagrupacionsfnl';
+        $r_sa = mysqli_query($conn, $d_safn) or trigger_error("Query Failed! SQL: $d_safn - Error: ".mysqli_error($conn),E_USER_ERROR);
         $d_er='DROP VIEW IF EXISTS estadoresultados';
         $r_der = mysqli_query($conn, $d_er) or trigger_error("Query Failed! SQL: $d_er - Error: ".mysqli_error($conn),E_USER_ERROR);
         $d_sf='DROP VIEW IF EXISTS situacionfinal';
@@ -116,34 +118,43 @@ SELECT `fecha_aj` , `cod_cuenta_aj` , `cuenta_aj` , `debe_aj` , `haber_aj` , `sl
  $r_ag = mysqli_query($conn, $c_ag) or trigger_error("Query Failed! SQL: $c_ag - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 
-$c_sa="CREATE VIEW sumatoriadeagrupacion AS 
-SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
+$c_saer="CREATE VIEW sumatoriadeagrupacionestres AS 
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE c.cod_clase>'3.' and g.cod_grupo>'3.9.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
 UNION
-SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE c.cod_clase>'3.' and g.cod_grupo>'3.9.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
 UNION
-SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
+SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE c.cod_clase>'3.' and ct.cod_cuenta>'3.9.99.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
 UNION
-SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta";
- $r_sa = mysqli_query($conn, $c_sa) or trigger_error("Query Failed! SQL: $c_sa - Error: ".mysqli_error($conn),E_USER_ERROR);
+SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE c.cod_clase>'3.' and sb.cod_subcuenta>'3.9.99.999.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta";
+ $r_sa = mysqli_query($conn, $c_saer) or trigger_error("Query Failed! SQL: $c_saer - Error: ".mysqli_error($conn),E_USER_ERROR);
+ sleep(1);
+
+ $c_safn="CREATE VIEW sumatoriadeagrupacionsfnl AS 
+SELECT c.cod_clase as codigo, c.nombre_clase as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE g.cod_grupo<='3.9.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by c.cod_clase
+UNION
+SELECT g.cod_grupo as codigo, g.nombre_grupo as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c WHERE g.cod_grupo<='3.9.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase GROUP by g.cod_grupo
+UNION
+SELECT ct.cod_cuenta as codigo, ct.nombre_cuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct WHERE g.cod_grupo<='3.9.' and ct.cod_cuenta<'3.9.99.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta GROUP by ct.cod_cuenta
+UNION
+SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as s_deudor, SUM(acreedor) as s_acreedor, ag.contabilidad,ag.year,ag.mes,ag.fecha FROM `agrupacion` ag JOIN t_grupo g JOIN t_clase c JOIN t_cuenta ct JOIN t_subcuenta sb WHERE g.cod_grupo<='3.9.' and ag.grupo = g.cod_grupo and g.t_clase_cod_clase = c.cod_clase and ag.cuenta = ct.cod_cuenta AND ag.subcuenta = sb.cod_subcuenta GROUP by sb.cod_subcuenta";
+ $r_safn = mysqli_query($conn, $c_safn) or trigger_error("Query Failed! SQL: $c_safn - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 
 $c_er="CREATE VIEW estadoresultados AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo>'3.99.99.99' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacionestres` WHERE codigo>'3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.99.99.99' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionestres` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.99.99.99' GROUP by codigo HAVING `s_acreedor` = `s_deudor`
-";
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionestres` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
  $r_er = mysqli_query($conn, $c_er) or trigger_error("Query Failed! SQL: $c_er - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 
 $c_sf="CREATE VIEW situacionfinal AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo<='3.99.99.99' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacionsfnl` WHERE codigo<='3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.99.99.99' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionsfnl` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.99.99.99' GROUP by codigo HAVING `s_acreedor` = `s_deudor`
-";
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionsfnl` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
  $r_sf = mysqli_query($conn, $c_sf) or trigger_error("Query Failed! SQL: $c_sf - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 

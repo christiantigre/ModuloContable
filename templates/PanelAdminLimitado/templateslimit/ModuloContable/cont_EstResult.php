@@ -313,7 +313,7 @@ include '../../../Clases/acentos.php';
                                                     $op = $pos_f[0];
                                                     $mes = $pos_f[1];
 //                                                    echo '<script>alert("' . $mes . '")</script>';
-                                                    $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where "
+                                                    $select_ct = "SELECT codigo,cuenta,total FROM situacionfinal where "
                                                             . "codigo <='3.99.99.99.99' and mes='" . $mes . "' ORDER BY codigo ASC";
                                                     echo '<table width="100%" class="table table-striped table-bordered table-hover">';
                                                     echo "<br>";
@@ -400,7 +400,7 @@ include '../../../Clases/acentos.php';
                                                 echo '<td style = "display:none"></td>';
                                                 echo '<td style = "display:none"></td>';
                                                 echo '</tr>';
-                                                $select_ct = "SELECT codigo,cuenta,total FROM estadoresultados where codigo <='3.1.1.2.' ORDER BY codigo ASC";
+                                                $select_ct = "SELECT codigo,cuenta,total FROM situacionfinal where codigo <='3.1.1.2.' ORDER BY codigo ASC";
                                                 $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
                                                 while ($row2 = mysqli_fetch_array($resulgrupos)) {
                                                     $str = strlen($row2['codigo']);

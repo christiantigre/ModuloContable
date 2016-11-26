@@ -63,7 +63,7 @@ $pdf->SetFont('Arial', 'B', 8);
 
 $pdf->Ln(8);
 
-$sql_carga_balance = mysqli_query($db, "SELECT codigo,cuenta,total FROM estadoresultados where codigo <='3.1.1.1.' ORDER BY codigo ASC");
+$sql_carga_balance = mysqli_query($db, "SELECT codigo,cuenta,total FROM situacionfinal where codigo <='3.1.1.1.' ORDER BY codigo ASC");
 while ($row3 = mysqli_fetch_array($sql_carga_balance)) {
     $str = strlen($row3['codigo']);
         $pdf->Cell(15, 0, $row3['codigo'], 0);

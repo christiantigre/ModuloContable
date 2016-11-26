@@ -46,6 +46,8 @@ if ($month == '01') {
 }elseif ($month == "12") {
     $month = "Diciembre";
 }
+
+
 $consultaaux = "SELECT max( idt_bl_inicial ) as id FROM `t_bl_inicial`";
 $resultaux = mysqli_query($c, $consultaaux) or trigger_error("Query Failed! SQL: $query - Error: " . mysqli_error($c), E_USER_ERROR);
 if ($resultaux) {
@@ -123,6 +125,8 @@ mysqli_query($c, $insertasientoconcepto);
 
 $a = 1;
 for ($i = 0; $i < count($_POST['campo6']); $i++) {
+    $val_deb = $_POST['campo4'][$i];
+    $val_hab = $_POST['campo5'][$i];
     mysqli_query($c, "INSERT INTO `condata`.`t_ejercicio` 
         (`idt_corrientes` ,`ejercicio` ,`cod_cuenta` ,`cuenta` ,`fecha` ,
         `valor` ,`valorp` ,`t_bl_inicial_idt_bl_inicial` ,
@@ -132,8 +136,8 @@ for ($i = 0; $i < count($_POST['campo6']); $i++) {
 '" . $_POST['campo2'][$i] . "',
 '" . $_POST['campo3'][$i] . "', 
 '" . $date_next . "',
-'" . $_POST['campo4'][$i] . "', 
-'" . $_POST['campo5'][$i] . "',
+'" . $val_deb . "', 
+'" . $val_hab . "',
 '" . $maxbalancedato . "',
 '" . $_POST['campo6'][$i] . "', 
 '" . $idlogeobl . "',
@@ -142,7 +146,10 @@ for ($i = 0; $i < count($_POST['campo6']); $i++) {
 );");
     $a++;
 }
-
+$temp_val="UPDATE `t_ejercicio` SET `cuenta`='n/n' WHERE cuenta=''";
+$temp_val_cod="UPDATE `t_ejercicio` SET `cod_cuenta`='1.' WHERE cod_cuenta=''";
+mysqli_query($c, $temp_val);
+mysqli_query($c, $temp_val_cod);
 
 $vaciar_libro="truncate libro;";
 $vaciar_num_asientos_ajustes="truncate num_asientos_ajustes;";

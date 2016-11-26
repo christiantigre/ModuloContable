@@ -88,7 +88,7 @@ $pdf->Cell(0, 5, '', 'T', 1);
 $pdf->SetFont('Arial', 'B', 8);
 
 $pdf->Ln(8);
-$sql_ingresos = "SELECT * FROM tempestadoresultados where fecha between '" . $datemin . "' and '" . $datemax . "' and codigo <='3.1.1.2.' ORDER BY codigo ASC";
+$sql_ingresos = "SELECT * FROM tempsituacionfinal where fecha between '" . $datemin . "' and '" . $datemax . "' and codigo <='3.1.1.2.' ORDER BY codigo ASC";
 
 
 $sql_carga_balance = mysqli_query($c, $sql_ingresos);
