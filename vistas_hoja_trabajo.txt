@@ -59,7 +59,9 @@ SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( co
 UNION
 SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor
+
+
 
 5)-------------------------SITUACION FINAL--------------------
 CREATE VIEW situacionfinal AS 
