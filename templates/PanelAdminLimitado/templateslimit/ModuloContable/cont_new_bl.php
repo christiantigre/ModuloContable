@@ -70,233 +70,238 @@ $contador_ass = $row_cont['CON'];
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-            <![endif]-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
-        </head>
-        <body>
-            <div id="wrapper">
-                <!-- Navigation -->
-                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" rel="home" href="ini_cont.php" title="Buy Sell Rent Everyting">
-                            <?Php
-                            require('../../../../templates/Clases/empresa.php');
-                            $objClase = new Empresa;
-                            $objClase->view_logcontabilidad();
-                            ?>
-
-                        </a>
-                    </div>
-                    <!-- /.navbar-header -->
-                    <?PHP
-                    require('../../../../templates/Clases/menus.php');
-                    $objMenu = new menus();
-                    $objMenu->menu_header($carpeta, $user, $id);
-//                $objMenu->menu_header_level($_SESSION['loginu'], $idlogeobl);
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" rel="home" href="ini_cont.php" title="Buy Sell Rent Everyting">
+                    <?Php
+                    require('../../../../templates/Clases/empresa.php');
+                    $objClase = new Empresa;
+                    $objClase->view_logcontabilidad();
                     ?>
-                    <!-- /.navbar-top-links -->
-                    <div class="navbar-default sidebar" role="navigation">
-                        <?PHP
-                        $objMenu->menu_indexadmin_row($carpeta);
+
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+            <?PHP
+            require('../../../../templates/Clases/menus.php');
+            $objMenu = new menus();
+            $objMenu->menu_header($carpeta, $user, $id);
+//                $objMenu->menu_header_level($_SESSION['loginu'], $idlogeobl);
+            ?>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <?PHP
+                $objMenu->menu_indexadmin_row($carpeta);
 //                    $objMenu->menu_contabilidad();
-                        ?>
-                        <!-- /.sidebar-collapse -->
-                    </div>
-                    <!-- /.navbar-static-side -->
-                </nav>
+                ?>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
-                <div id="page-wrapper">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header"></h1>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            Balance Inicial para el nuevo per&iacute;odo
                         </div>
-                        <!-- /.col-lg-12 -->
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <form name="formulario" id="formulario" action="cont_new_bl.php" method="POST">
+                                    <center>
+                                        <h1>Balance Generado</h1>
+                                        <?php
+                                        $c = $dbi->conexion();
+                                        $consulta = "SELECT max( idt_bl_inicial ) as id FROM `t_bl_inicial`";
+                                        $result = mysqli_query($c, $consulta) or trigger_error("Query Failed! SQL: $consulta - Error: " . mysqli_error($c), E_USER_ERROR);
+                                        if ($result) {
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $maxbalancedato = $row['id'];
+                                            }
+                                        }
+                    //$c->close();
+                                        ?>
+                                        <!--<input type="hidden" value="<?php echo $maxbalancedato; ?>" id="texto"/>-->
+<!--                                <a href="impresiones/imphojadetrabajo.php?prmlg=<?php echo $idlogeobl; ?>">
+                        <img src="./images/print.png" alt="Ver" title="Detalles" /> 
+                    </a>-->
+                    <!--<input type="submit" name="savenewblini" onclick="jsShowWindowLoad('Guardando Balance');" 
+                    id="savenewblini" class="btn" value="Guardar Nuevo Balance"/>-->
+                    
+
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Acci&oacute;nes
+                            </div>
+                            <div class="panel-body">
+                                <p>
+
+                                    <div class="col-xs-8 form-group">
+                                        <input type="submit" name="savenewblini" onclick="jsShowWindowLoad('Guardando Balance');" 
+                                        id="savenewblini" class="btn" value="Guardar Nuevo Balance"/>
+                                    </div>
+                                    <div class="col-xs-8 form-group">
+                                        <button type="submit" title="IMPRIMIR BALANCE GENERADO" class="btn btn-outline btn-danger " onclick="imp_blgenerado(<?Php echo $idlogeobl; ?>)"><img src="../../../../images/pdf.png" width="30" height="30" alt="pdf"/></button>
+                                        <button type="submit" title="EXPORTAR A EXCEL" name="ex_bl_generado" id="ex_bl_generado" class="btn btn-outline btn-success" onclick="exp_bl_generado(this.id)"><img src="../../../../images/excel.png" width="30" height="30" alt="excel"/></button>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="panel-footer">
+
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <!-- /.col-lg-12 -->
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-
-                                <div class="panel-heading">
-                                    Balance Inicial para el nuevo per&iacute;odo
-                                </div>
-
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <form name="formulario" id="formulario" action="cont_new_bl.php" method="POST">
-                                            <center>
-                                                <h1>Balance Generado</h1>
-                                                <?php
-                                                $c = $dbi->conexion();
-                                                $consulta = "SELECT max( idt_bl_inicial ) as id FROM `t_bl_inicial`";
-                                                $result = mysqli_query($c, $consulta) or trigger_error("Query Failed! SQL: $consulta - Error: " . mysqli_error($c), E_USER_ERROR);
-                                                if ($result) {
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        $maxbalancedato = $row['id'];
-                                                    }
-                                                }
-                                            //$c->close();
-                                                ?>
-                                                <!--<input type="hidden" value="<?php echo $maxbalancedato; ?>" id="texto"/>-->
-            <!--                                <a href="impresiones/imphojadetrabajo.php?prmlg=<?php echo $idlogeobl; ?>">
-                                                <img src="./images/print.png" alt="Ver" title="Detalles" /> 
-                                            </a>-->
-                                            <!--<input type="submit" name="savenewblini" onclick="jsShowWindowLoad('Guardando Balance');" 
-                                            id="savenewblini" class="btn" value="Guardar Nuevo Balance"/>-->
-                                            
-
-                                            <div class="col-lg-4">
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        Acci&oacute;nes
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <p>
-
-                                                                <div class="col-xs-8 form-group">
-                                                                    <input type="submit" name="savenewblini" onclick="jsShowWindowLoad('Guardando Balance');" 
-                                                                    id="savenewblini" class="btn" value="Guardar Nuevo Balance"/>
-                                                                </div>
-                                                                <div class="col-xs-8 form-group">
-                                                                <button type="submit" title="IMPRIMIR BALANCE GENERADO" class="btn btn-outline btn-danger " onclick="imp_blgenerado(<?Php echo $idlogeobl; ?>)"><img src="../../../../images/pdf.png" width="30" height="30" alt="pdf"/></button>
-                                                                <button type="submit" title="EXPORTAR A EXCEL" name="ex_bl_generado" id="ex_bl_generado" class="btn btn-outline btn-success" onclick="exp_bl_generado(this.id)"><img src="../../../../images/excel.png" width="30" height="30" alt="excel"/></button>
-                                                                </div>
-                                                            </p>
-                                                        </div>
-                                                        <div class="panel-footer">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
 
 
 
 
 
-                                                <!--                                <input type="button" name="balanceactual" id="balanceactual" class="btn" value="Balance General Actual"/>-->
-                                                <div class="mensaje"></div>
-                                                <input type="hidden" value="<?php echo $estado; ?>"/>
-                                                <input type="hidden" name="respuesta" id="respuesta" value=""/>
-                                                <input type="hidden" name="idlogeobl" id="idlogeobl" value="<?php echo $idlogeobl; ?>"/>
-                                                <?php
-                                                $c = $dbi->conexion();
-                                                $sqlparametro = " SELECT max( `idt_bl_inicial` ) AS cont FROM `t_bl_inicial`";
-                                                $resul_param = $c->query($sqlparametro);
-                                                if ($resul_param->num_rows > 0) {
-                                                    while ($clase_param = $resul_param->fetch_assoc()) {
-                                                        $parametro_contador = $clase_param['cont'];
-                                                    }
-                                                } else {
-                                                    echo "<script>alert('Ocurrio un error al cargar un parametro...')</script>";
-                                                }
-                                                $sql_sumyear = "SELECT year FROM `t_bl_inicial` where idt_bl_inicial='" . $maxbalancedato . "'";
-                                                $data = mysqli_query($c, $sql_sumyear);
-                                                $resdata = mysqli_fetch_assoc($data);
-                                                $yearactual = $resdata['year'] + 1;
-                                                ?>
-                                                <input type="text"  readonly="readonly" class="form-control" name="yearsiguiente" id="yearsiguiente" value="El periodo a crear es :<?php echo $yearactual; ?>"/>
-                                                <?Php
-                                                $sql_carganuevobalance = "
-                                                SELECT v.fecha AS f, v.cod_cuenta AS codcuenta, p.nombre_cuenta_plan AS cuenta, v.tipo AS grupo, v.sum_deudor, v.sum_acreedor
-                                                FROM hoja_de_trabajo v
-                                                JOIN t_grupo g
-                                                JOIN t_plan_de_cuentas p
-                                                WHERE v.`tipo` = g.cod_grupo
-                                                AND p.cod_cuenta = v.cod_cuenta
-                                                AND v.year = '" . $year . "'
-                                                AND v.t_bl_inicial_idt_bl_inicial = '" . $maxbalancedato . "'
-                                                ORDER BY v.cod_cuenta asc";
-                                                ?>
+                    <!--                                <input type="button" name="balanceactual" id="balanceactual" class="btn" value="Balance General Actual"/>-->
+                    <div class="mensaje"></div>
+                    <input type="hidden" value="<?php echo $estado; ?>"/>
+                    <input type="hidden" name="respuesta" id="respuesta" value=""/>
+                    <input type="hidden" name="idlogeobl" id="idlogeobl" value="<?php echo $idlogeobl; ?>"/>
+                    <?php
+                    $c = $dbi->conexion();
+                    $sqlparametro = " SELECT max( `idt_bl_inicial` ) AS cont FROM `t_bl_inicial`";
+                    $resul_param = $c->query($sqlparametro);
+                    if ($resul_param->num_rows > 0) {
+                        while ($clase_param = $resul_param->fetch_assoc()) {
+                            $parametro_contador = $clase_param['cont'];
+                        }
+                    } else {
+                        echo "<script>alert('Ocurrio un error al cargar un parametro...')</script>";
+                    }
+                    $sql_sumyear = "SELECT year FROM `t_bl_inicial` where idt_bl_inicial='" . $maxbalancedato . "'";
+                    $data = mysqli_query($c, $sql_sumyear);
+                    $resdata = mysqli_fetch_assoc($data);
+                    $yearactual = $resdata['year'] + 1;
+                    ?>
+                    <input type="text"  readonly="readonly" class="form-control" name="yearsiguiente" id="yearsiguiente" value="El periodo a crear es :<?php echo $yearactual; ?>"/>
+                    <?Php
+                    $sql_carganuevobalance = "
+                    SELECT v.fecha AS f, v.cod_cuenta AS codcuenta, p.nombre_cuenta_plan AS cuenta, v.tipo AS grupo, v.sum_deudor, v.sum_acreedor
+                    FROM hoja_de_trabajo v
+                    JOIN t_grupo g
+                    JOIN t_plan_de_cuentas p
+                    WHERE v.`tipo` = g.cod_grupo
+                    AND p.cod_cuenta = v.cod_cuenta
+                    AND v.year = '" . $year . "'
+                    AND v.t_bl_inicial_idt_bl_inicial = '" . $maxbalancedato . "'
+                    ORDER BY v.cod_cuenta asc";
+                    ?>
 
-                                                <center>
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <tr>
-                                                            <!--<td>Fecha</td>-->
-                                                            <td>Codigo</td>
-                                                            <td>Cuenta</td>
-                                                            <td>Debe</td>
-                                                            <td>Haber</td>
-                                                        </tr>
-                                                        <?Php
-                                                        $resul1 = mysqli_query($c, $sql_carganuevobalance);
-                                                        while ($r2 = mysqli_fetch_array($resul1)) {
-                                                            echo '<tr>';
-                                                        //echo '<td><div class="col-xs-7 form-group has-success">
-                                                        //<input readonly="readonly" class="form-control info" type="text" name="campo1[]" id="fecha" value=' . $date . '>
-                                                    //</div></td>';
+                    <center>
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <!--<td>Fecha</td>-->
+                                <td>Codigo</td>
+                                <td>Cuenta</td>
+                                <td>Debe</td>
+                                <td>Haber</td>
+                                <td>Grupo</td>
+                            </tr>
+                            <?Php
+                            $resul1 = mysqli_query($c, $sql_carganuevobalance);
+                            while ($r2 = mysqli_fetch_array($resul1)) {
+                                echo '<tr>';
+                                //echo '<td><div class="col-xs-7 form-group has-success">
+                                //<input readonly="readonly" class="form-control info" type="text" name="campo1[]" id="fecha" value=' . $date . '>
+                            //</div></td>';
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo1[]" id="fecha" value=' . $date . '></td>';
-                                                            if ($r2['codcuenta']=='') {
-                                                                echo '<td><div class="col-xs-7 form-group has-danger">
-                                                            <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value="" placeholder="----SIN CODIGO----">
-                                                        </div></td>';
-                                                            } else {
-                                                                echo '<td><div class="col-xs-7 form-group has-success">
-                                                            <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value=' . $r2['codcuenta'] . '>
-                                                        </div></td>';
-                                                            }                                                            
-                                                            
+                                if ($r2['codcuenta']=='') {
+                                    echo '<td><div class="col-xs-7 form-group has-danger">
+                                    <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value="" placeholder="----SIN CODIGO----">
+                                </div></td>';
+                            } else {
+                                echo '<td><div class="col-xs-7 form-group has-success">
+                                <input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value=' . $r2['codcuenta'] . '>
+                            </div></td>';
+                        }                                                            
+
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo2[]" id="cod" value=' . $r2['codcuenta'] . '></td>';
-                                                            if ($r2['cuenta']=='') {
-                                                                echo '<td><div class="col-xs-14 form-group has-warning">
-                                                        <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="" placeholder="----SIN NOMBRE----">
-                                                    </div></td>';
-                                                            } else {
-                                                                echo '<td><div class="col-xs-14 form-group has-success">
-                                                        <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="' . $r2['cuenta'] . '">
-                                                    </div></td>';
-                                                            }                                                            
-                                                        
+                        if ($r2['cuenta']=='') {
+                            echo '<td><div class="col-xs-14 form-group has-warning">
+                            <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="" placeholder="----SIN NOMBRE----">
+                        </div></td>';
+                    } else {
+                        echo '<td><div class="col-xs-14 form-group has-success">
+                        <input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" value="' . $r2['cuenta'] . '">
+                    </div></td>';
+                }                                                            
+
 //                                                        echo '<td>';
 //                                                        echo '<input type="text" readonly="readonly" class="form-control info" name="campo3[]" id="cuenta" style="width: 220px;" value="' . $r2['cuenta'] . '">';
 //                                                        echo '</td>';
-                                                    echo '<td><div class="col-xs-8 form-group has-success">
-                                                    <input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . number_format($r2['sum_deudor'], 2, '.', '') . '>
-                                                </div></td>';
+                echo '<td><div class="col-xs-8 form-group has-success">
+                <input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . number_format($r2['sum_deudor'], 2, '.', '') . '>
+            </div></td>';
 //                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo4[]" id="deb" value=' . $r2['sum_deudor'] . '></td>';
-                                                echo '<td><div class="col-xs-8 form-group has-success">
-                                                <input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' .number_format($r2['sum_acreedor'], 2, '.', '') . '>
-                                            </div></td>';
+            echo '<td><div class="col-xs-8 form-group has-success">
+            <input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' .number_format($r2['sum_acreedor'], 2, '.', '') . '>
+        </div></td>';
 
-//                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' . $r2['sum_acreedor'] . '></td>';
-                                            echo '<td style="display:none"><input readonly="readonly" class="form-control info" type="text" name="campo6[]" id="tipo" value=' . $r2['grupo'] . '></td>';
-                                            echo '</tr>';
-                                        }
-                                        $c->close();
-                                        ?>
+//                                                        echo '<td><input readonly="readonly" class="form-control info" type="text" name="campo5[]" id="hab" value=' . $r2['sum_acreedor'] . '></td>'; style="display:none"
+        $ver_grupo= 'SELECT * FROM `t_plan_de_cuentas` WHERE cod_cuenta="'.$r2['codcuenta'].'" ';
+        $resul2 = mysqli_query($c, $ver_grupo);
+        while ($r3 = mysqli_fetch_array($resul2)) {
+            echo '<td ><input readonly="readonly" class="form-control info" type="text" name="campo6[]" id="tipo" value=' . $r3['t_grupo_cod_grupo'] . '></td>';
+            echo '</tr>';
+        }
+    }
+    $c->close();
+    ?>
 
-                                        <tr>
-                                            <th colspan="6"> Concepto :
-                                                <!--a la fecha <?php echo $date; ?>-->
-                                                <textarea class="form-control" id="textarea_asnew" name="textarea_asnew" rows="1" cols="30">Balance actual por cierre de periodo <?php echo $year; ?>...
-                                                </textarea>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </center>
+    <tr>
+        <th colspan="6"> Concepto :
+            <!--a la fecha <?php echo $date; ?>-->
+            <textarea class="form-control" id="textarea_asnew" name="textarea_asnew" rows="1" cols="30">Balance actual por cierre de periodo <?php echo $year; ?>...
+            </textarea>
+        </th>
+    </tr>
+</table>
+</center>
 
 
-                            </center>
-                        </form>
-                    </div>
-                    <!-- /.table-responsive -->
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-    </div>
-    <!-- /.row -->
+</center>
+</form>
+</div>
+<!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+</div>
+</div>
+<!-- /.row -->
 </div>
 <!-- /#page-wrapper -->
 </div>
@@ -339,17 +344,17 @@ $contador_ass = $row_cont['CON'];
 <!--Cargando-->
 
 <style>
-  #WindowLoad
-  {
-    position:fixed;
-    top:0px;
-    left:0px;
-    z-index:3200;
-    filter:alpha(opacity=65);   
-    -moz-opacity:65;   
-    opacity:0.65;
-    background:#999;
-}
+    #WindowLoad
+    {
+        position:fixed;
+        top:0px;
+        left:0px;
+        z-index:3200;
+        filter:alpha(opacity=65);   
+        -moz-opacity:65;   
+        opacity:0.65;
+        background:#999;
+    }
 </style>
 </body>
 

@@ -136,6 +136,24 @@ codigo char(20),
 );
 
 
+5) --------------------crear tabla cta_close-------------------------
+CREATE TABLE IF NOT EXISTS `condata`.`cta_close` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `ejercicio` CHAR(45) NULL,
+  `cod_cuenta` CHAR(45) NULL,
+  `cuenta` CHAR(45) NULL,
+  `fecha` CHAR(45) NULL,
+  `valor` DECIMAL(15,2) NULL,
+  `valorp` DECIMAL(15,2) NULL,
+  `t_bl_inicial_idt_bl_inicial` INT(11) NULL,
+  `tipo` CHAR(11) NULL,
+  `logeo_idlogeo` INT(11) NULL,
+  `mes` CHAR(45) NULL,
+  `year` CHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 ------------------------------------------OPCIONAL HOJA DE TRABAJO SIN CALCULOS DE RESULTADOS------------
 vista sin calculo final
 create view hoja_de_trabajo as

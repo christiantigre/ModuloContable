@@ -63,7 +63,7 @@ $pdf->SetFont('Arial', 'B', 8);
 
 $pdf->Ln(8);
 
-$sql_carga_balance = mysqli_query($db, "SELECT codigo,cuenta,total FROM situacionfinal where codigo <='3.1.1.1.' ORDER BY codigo ASC");
+$sql_carga_balance = mysqli_query($db, "SELECT codigo,cuenta,total FROM situacionfinal where codigo <='3.1.1.2.' ORDER BY codigo ASC");
 while ($row3 = mysqli_fetch_array($sql_carga_balance)) {
     $str = strlen($row3['codigo']);
         $pdf->Cell(15, 0, $row3['codigo'], 0);
@@ -75,7 +75,24 @@ while ($row3 = mysqli_fetch_array($sql_carga_balance)) {
     } elseif ($str == 6) {
         $pdf->Cell(40, 0, round($row3['total'],2,1), 0,1,'R');
     } elseif ($str == 8) {
-        $pdf->Cell(15, 0, round($row3['total'],2,1), 0,1,'R');
+        $pdf->Cell(70, 0, round($row3['total'],2,1), 0);
+
+    $sql_nivel = mysqli_query($db, "SELECT * FROM `agrupacion` WHERE subcuenta='" . $row3['codigo'] . "'");
+        while ($row4 = mysqli_fetch_array($sql_nivel)) {
+        $pdf->Ln(8);
+            $pdf->Cell(15, 0, $row4['referencia'], 0);
+            $cts = "SELECT nombre_cuenta_plan FROM `t_plan_de_cuentas` WHERE cod_cuenta='" . $row4['referencia'] . "'";
+            $resulct = mysqli_query($db, $cts)or trigger_error("Query Failed! SQL: $cts- Error: " . mysqli_error($db), E_USER_ERROR);
+            while ($row5 = mysqli_fetch_array($resulct)) {
+            $pdf->Cell(15, 0, $row5['nombre_cuenta_plan'], 0);
+         }
+         if ($row4['deudor'] > $row4['acreedor']) {
+            $total = $row4['deudor'];
+        } elseif ($row4['acreedor'] > $row4['deudor']) {
+         $total = ('-' . $row4['acreedor']);
+     }
+        $pdf->Cell(65, 0, round($total,2,1), 0,1,'R');
+        }
     }
     $pdf->Ln(8);
 }

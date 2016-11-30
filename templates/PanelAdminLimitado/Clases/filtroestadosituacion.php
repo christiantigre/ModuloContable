@@ -65,7 +65,7 @@ class filtroestadosituacion {
         $conn = $dbi->conexion();
 //        elimina tabla temporal
 //        DROP TABLE temporal
-        $delete_temp = "DELETE FROM tempestadoresultados";
+        $delete_temp = "DELETE FROM tempsituacionfinal";
         $resuldelet = mysqli_query($conn, $delete_temp)or trigger_error("Query Failed! SQL: $delete_temp - Error: " . mysqli_error($conn), E_USER_ERROR);
 
 
@@ -87,7 +87,7 @@ class filtroestadosituacion {
         $desde = date("Y-m-d", strtotime($fechadesde));
         $hasta = date("Y-m-d", strtotime($fechahasta));
 
-        $select_ct = "SELECT * FROM tempsituacionfinal where fecha between '" . $desde . "' and '" . $hasta . "' and codigo <='3.1.1.2.' ORDER BY codigo ASC";
+        $select_ct = "SELECT * FROM tempsituacionfinal where fecha between '" . $desde . "' and '" . $hasta . "' and codigo <='3.9.99.999.' ORDER BY codigo ASC";
         $resulgrupos = mysqli_query($conn, $select_ct)or trigger_error("Query Failed! SQL: $select_ct - Error: " . mysqli_error($mysqli), E_USER_ERROR);
 
         $datosIngreso = array();

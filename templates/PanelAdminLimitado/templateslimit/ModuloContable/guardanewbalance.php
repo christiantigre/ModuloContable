@@ -21,7 +21,7 @@ list($year,$month,$dia) = explode("-",$date);
  $year_next = $year+1;
  $date_next = $year_next.'-'.'01'.'-'.'01';
  $month_first='Enero';
-if ($month == '01') {
+ if ($month == '01') {
     $month = "Enero";
 }elseif ($month == "02") {
     $month = "Febrero";
@@ -56,10 +56,10 @@ if ($resultaux) {
     }
 }
 $sql_sumyear="SELECT year FROM `t_bl_inicial` where idt_bl_inicial='".$maxbalancedatoaux."'";
-                                        $data = mysqli_query($c, $sql_sumyear);
-                                        $resdata = mysqli_fetch_assoc($data);
-                                        $yearactual = $resdata['year'];
-                                        $yearactual = $yearactual+1;
+$data = mysqli_query($c, $sql_sumyear);
+$resdata = mysqli_fetch_assoc($data);
+$yearactual = $resdata['year'];
+$yearactual = $yearactual+1;
 
 $contarbalances = "SELECT count(`idt_bl_inicial`)+1 as contador FROM `t_bl_inicial`";
 $rescontador = mysqli_query($c, $contarbalances);
@@ -70,9 +70,9 @@ $contadorbalances = $fila['contador'];
 
 
 $creanuevoperiodo = "INSERT INTO `condata`.`t_bl_inicial`"
-        . " (`idt_bl_inicial`, `fecha_balance`, `logeo_idlogeo`, `year`, `estado`) "
-        . "VALUES ('" . $contadorbalances . "', '".$date_next."', '" . $idlogeoblu . "', '" . $yearactual . "',"
-        . " '1');";
+. " (`idt_bl_inicial`, `fecha_balance`, `logeo_idlogeo`, `year`, `estado`) "
+. "VALUES ('" . $contadorbalances . "', '".$date_next."', '" . $idlogeoblu . "', '" . $yearactual . "',"
+. " '1');";
 mysqli_query($c, $creanuevoperiodo) or trigger_error("Query Failed! SQL: $creanuevoperiodo - Error: " . mysqli_error($c), E_USER_ERROR);
 //DEFINE NOMBRE DE LAS TABLAS//
 $num_asientos = 'num_asientos_'.$year;
@@ -117,33 +117,54 @@ mysqli_query($c, $vaciar_num_asientos);
 $vaciar_t_ejercicio="truncate t_ejercicio;";
 mysqli_query($c, $vaciar_t_ejercicio);
 $insertasientoconcepto = "INSERT INTO `condata`.`num_asientos` (`idnum_asientos` ,`fecha` ,`concepto` , "
-        . "`t_bl_inicial_idt_bl_inicial`, `t_ejercicio_idt_corrientes`, mes,year,saldodebe,saldohaber)VALUES "
-        . "('1' , '" . $date_next . "', '" . trim($concepto) . "', '" . $maxbalancedato . "',"
-        . "'" . $asiento_num . "','" . $month_first . "','" . $yearactual . "',"
-        . "'" . (float) $saldodebe . "','" . (float) $saldohaber . "');";
+. "`t_bl_inicial_idt_bl_inicial`, `t_ejercicio_idt_corrientes`, mes,year,saldodebe,saldohaber)VALUES "
+. "('1' , '" . $date_next . "', '" . trim($concepto) . "', '" . $maxbalancedato . "',"
+. "'" . $asiento_num . "','" . $month_first . "','" . $yearactual . "',"
+. "'" . (float) $saldodebe . "','" . (float) $saldohaber . "');";
 mysqli_query($c, $insertasientoconcepto);
 
 $a = 1;
 for ($i = 0; $i < count($_POST['campo6']); $i++) {
     $val_deb = $_POST['campo4'][$i];
     $val_hab = $_POST['campo5'][$i];
-    mysqli_query($c, "INSERT INTO `condata`.`t_ejercicio` 
-        (`idt_corrientes` ,`ejercicio` ,`cod_cuenta` ,`cuenta` ,`fecha` ,
-        `valor` ,`valorp` ,`t_bl_inicial_idt_bl_inicial` ,
-`tipo` ,`logeo_idlogeo` ,`mes`,year 
-)VALUES (NULL ,
-'" . $asiento_num . "', 
-'" . $_POST['campo2'][$i] . "',
-'" . $_POST['campo3'][$i] . "', 
-'" . $date_next . "',
-'" . $val_deb . "', 
-'" . $val_hab . "',
-'" . $maxbalancedato . "',
-'" . $_POST['campo6'][$i] . "', 
-'" . $idlogeobl . "',
-'" . $month_first . "',
-'" . $yearactual . "'    
-);");
+    if (($val_deb=='0.00') && ($val_hab=='0.00')) {
+        mysqli_query($c, "INSERT INTO `condata`.`cta_close` 
+            (`id` ,`ejercicio` ,`cod_cuenta` ,`cuenta` ,`fecha` ,
+            `valor` ,`valorp` ,`t_bl_inicial_idt_bl_inicial` ,
+            `tipo` ,`logeo_idlogeo` ,`mes`,year 
+            )VALUES (NULL ,
+            '" . $asiento_num . "', 
+            '" . $_POST['campo2'][$i] . "',
+            '" . $_POST['campo3'][$i] . "', 
+            '" . $date_next . "',
+            '" . $val_deb . "', 
+            '" . $val_hab . "',
+            '" . $maxbalancedato . "',
+            '" . $_POST['campo6'][$i] . "', 
+            '" . $idlogeobl . "',
+            '" . $month_first . "',
+            '" . $yearactual . "'    
+            );");
+    } else {
+        mysqli_query($c, "INSERT INTO `condata`.`t_ejercicio` 
+            (`idt_corrientes` ,`ejercicio` ,`cod_cuenta` ,`cuenta` ,`fecha` ,
+            `valor` ,`valorp` ,`t_bl_inicial_idt_bl_inicial` ,
+            `tipo` ,`logeo_idlogeo` ,`mes`,year 
+            )VALUES (NULL ,
+            '" . $asiento_num . "', 
+            '" . $_POST['campo2'][$i] . "',
+            '" . $_POST['campo3'][$i] . "', 
+            '" . $date_next . "',
+            '" . $val_deb . "', 
+            '" . $val_hab . "',
+            '" . $maxbalancedato . "',
+            '" . $_POST['campo6'][$i] . "', 
+            '" . $idlogeobl . "',
+            '" . $month_first . "',
+            '" . $yearactual . "'    
+            );");
+    }    
+
     $a++;
 }
 $temp_val="UPDATE `t_ejercicio` SET `cuenta`='n/n' WHERE cuenta=''";
