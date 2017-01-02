@@ -205,9 +205,10 @@ $contador_ass = $row_cont['CON'];
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <div class="form-group">
+                                                            <div id="display" class="form-group">
                                                                 <label>Fecha</label>
-                                                                <input autocomplete="off" type="text" class="form-control" id="datetimepicker1" name="datetimepicker1" value="" required="required"/>
+                                                                <input autocomplete="off" type="text" onblur="cambia_campos();" class="form-control" id="datetimepicker1" name="datetimepicker1" value="" required="required"/>
+                                                                <input type="hidden" class="form-control" id="fecha_hidden" name="fecha_hidden" value="" required="required"/>
                                                                 <link rel="stylesheet" type="text/css" href="../../../../datepicker/jquery.datetimepicker.css"/>
                                                                 <script src="../../../../datepicker/jquery.js"></script>
                                                                 <script src="../../../../datepicker/jquery.datetimepicker.full.js"></script>

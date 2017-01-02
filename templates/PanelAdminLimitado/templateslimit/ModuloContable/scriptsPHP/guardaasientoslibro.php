@@ -15,26 +15,27 @@ if (mysqli_connect_errno()) {
     exit();
 }
 unset($success, $fail);
-$date = $_POST['datetimepicker1'];
+$date = $_POST['fecha_hidden'];
 list($year, $month, $dia) = explode("-", $date);
 $dia; // Imprime 12
 $month; // Imprime 01
 $year; // Imprime 2005
 
-//$ex_year = "SELECT max( year ) as yearcontabilidad FROM `t_bl_inicial`";
-//$res_year = mysqli_query($con, $ex_year) or trigger_error("Query Failed! SQL: $query - Error: " . mysqli_error($mysqli), E_USER_ERROR);
-//if ($res_year) {
-//    while ($rowy = mysqli_fetch_assoc($res_year)) {
-//        $yearcontabilidad = $rowy['yearcontabilidad'];
-//    }
-//}
-//
+$ex_year = "SELECT max( year ) as yearcontabilidad FROM `t_bl_inicial`";
+$res_year = mysqli_query($con, $ex_year) or trigger_error("Query Failed! SQL: $query - Error: " . mysqli_error($mysqli), E_USER_ERROR);
+if ($res_year) {
+    while ($rowy = mysqli_fetch_assoc($res_year)) {
+        $yearcontabilidad = $rowy['yearcontabilidad'];
+    }
+}
+
 //if ($year != $yearcontabilidad) {
 //    echo "No se puede ingresar un asiento con el periodo ".$year." fecha incorrecta";
-//if ($year != $yearcontabilidad) {
-//    echo "No se puede ingresar un asiento con el periodo " . $year . " fecha incorrecta";
-//
-//} else {
+if ($year != $yearcontabilidad) {
+//    print_r("No se puede ingresar un asiento con el periodo " . $year . " fecha incorrecta");
+    print_r("1");
+
+} else {
 
 
 
@@ -145,11 +146,13 @@ VALUES ('" . $incrementoej . "',
     generaLogs($user, $accion);
 
     if (mysqli_connect_errno()) {
-        print_r("insert failed :", mysqli_error($con));
+//        print_r("insert failed :", mysqli_error($con));
+        print_r("1");
     } else {
-        print_r("Guardado con exito...");
+//        print_r("Guardado con exito...");
+        print_r("2");
     }
 
     mysqli_close($con);
-//}
+}
 ?>

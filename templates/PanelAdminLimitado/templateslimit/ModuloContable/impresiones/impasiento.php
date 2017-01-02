@@ -37,7 +37,7 @@ while ($row4 = mysqli_fetch_array($resDH)) {
 }
 
 $sqlcargaconcepto = mysqli_query($db,"SELECT n.`idnum_asientos` AS id,
-    n.`t_ejercicio_idt_corrientes` ej, n.`concepto` c,  n.fecha AS f
+    n.`t_ejercicio_idt_corrientes` ej, n.`concepto` as c,  n.fecha AS f
 FROM `num_asientos` n
 JOIN totasientos e
 WHERE e.asiento = n.t_ejercicio_idt_corrientes
@@ -84,7 +84,7 @@ $pdf->Cell(165, 7, 'Empresa : ' . $nom_emp . '                    Direccion : ' 
 $pdf->Cell(165, 7, 'Ruc : ' . $ruc . '                                                 Emitido : ' . date("d-m-Y H:i") . '                                    Por : ' . $variablerespo, '', 2, 'L');
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Cell(70, 8, '', 0);
-$pdf->Cell(100, 8, 'Comprobante de Asiento generado', 0);
+$pdf->Cell(100, 8, 'Comprobante de Asiento generado #'.$id_asientourl, 0);
 $pdf->Ln(22);
 $pdf->Cell(0, 4, 'Pagina ' . $pdf->PageNo(), 'T', 1, 'R');
 $pdf->SetFont('Arial', 'B', 8);

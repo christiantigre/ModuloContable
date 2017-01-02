@@ -124,7 +124,8 @@ function addasiento_level() {
                     var nom_cuenta = $("#nom_cuenta").val();
                     var valor = $("#valor").val();
                     var asiento_num = $("#asiento_num").val();
-                    var fech = $("#datetimepicker1").val();
+//                    var fech = $("#datetimepicker1").val();
+                    var fech = $("#fecha_hidden").val();
                     var cod_grupo = $("#cod_grupo").val();
                     var idlog = $("#idlog").val();
                     var balances_realizados = $("#balances_realizados").val();
@@ -160,7 +161,8 @@ function addasiento_level() {
                     var nom_cuenta = $("#nom_cuenta").val();
                     var valor = $("#valor").val();
                     var asiento_num = $("#asiento_num").val();
-                    var fech = $("#datetimepicker1").val();
+//                    var fech = $("#datetimepicker1").val();
+                    var fech = $("#fecha_hidden").val();
                     var cod_grupo = $("#cod_grupo").val();
                     var idlog = $("#idlog").val();
                     var balances_realizados = $("#balances_realizados").val();

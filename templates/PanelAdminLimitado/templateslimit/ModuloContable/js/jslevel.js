@@ -123,7 +123,8 @@ function addasiento_level() {
                     var nom_cuenta = $("#nom_cuenta").val();
                     var valor = $("#valor").val();
                     var asiento_num = $("#asiento_num").val();
-                    var fech = $("#datetimepicker1").val();
+//                    var fech = $("#datetimepicker1").val();
+                    var fech = $("#fecha_hidden").val();
                     var cod_grupo = $("#cod_grupo").val();
                     var idlog = $("#idlog").val();
                     var balances_realizados = $("#balances_realizados").val();
@@ -159,7 +160,8 @@ function addasiento_level() {
                     var nom_cuenta = $("#nom_cuenta").val();
                     var valor = $("#valor").val();
                     var asiento_num = $("#asiento_num").val();
-                    var fech = $("#datetimepicker1").val();
+//                    var fech = $("#datetimepicker1").val();
+                    var fech = $("#fecha_hidden").val();
                     var cod_grupo = $("#cod_grupo").val();
                     var idlog = $("#idlog").val();
                     var balances_realizados = $("#balances_realizados").val();
@@ -392,23 +394,31 @@ function aux_save_level_as()
 {
     $('#form_ejercicio').submit(function (msg) {
         $.post("./scriptsPHP/guardaasientoslibro.php", $(this).serialize(), function (data) {
-            alert(data);
-            newAlert("success", " " + data);
-            $("#textarea_as").attr("value", "");
-            $("#camposumadebe").attr("value", "");
-            $("#camposumahaber").attr("value", "");
-            var answer = confirm("Desea imprimir el asiento realizado?");
-            if (answer) {
-                var idlogeo = $("#idlog").val();
-                var fech_url = $("#datetimepicker1").val();
-                var id_asientourl = $("#asiento_num").val();
-                window.open('impresiones/impasiento.php?idlogeo=' + idlogeo +
-                        '&fechaurl=' + fech_url + '&id_asientourl=' + id_asientourl);
-                window.location = '../../indexadmin.php';
-            } else
-            {
-                window.location = '../../indexadmin.php';
+//            alert(data);
+            if (data=="1"){
+                alert(" !!! No se pudo ingresar el asiento");
+                newAlert("success", " !!! No se pudo ingresar el asiento");
+            }else{
+                newAlert("success", "Guardado con exito...");
+                $("#textarea_as").attr("value", "");
+                $("#camposumadebe").attr("value", "");
+                $("#camposumahaber").attr("value", "");
+                var answer = confirm("Desea imprimir el asiento realizado?");
+                if (answer) {
+                    var idlogeo = $("#idlog").val();
+//                    var fech_url = $("#datetimepicker1").val();
+                    var fech_url = $("#fecha_hidden").val();
+                    var id_asientourl = $("#asiento_num").val();
+                    window.open('impresiones/impasiento.php?idlogeo=' + idlogeo +
+                            '&fechaurl=' + fech_url + '&id_asientourl=' + id_asientourl);
+                    window.location = '../../indexadmin.php';
+                } else
+                {
+                    window.location = '../../indexadmin.php';
+                }
             }
+//            newAlert("success", " " + data);
+
         });
         return false;
     });
@@ -611,7 +621,7 @@ function guardaas_aj()
     }
 
 }
-
+//editar
 function aux_save_aj()
 {
     $('#form_ejercicio').submit(function (msg) {

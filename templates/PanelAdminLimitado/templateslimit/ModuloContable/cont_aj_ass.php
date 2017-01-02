@@ -208,7 +208,8 @@ $contador_ass = $rcontajustes['cont'];
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Fecha</label>
-                                                                <input type="text" class="form-control" id="datetimepicker1" name="datetimepicker1" value=""/>
+                                                                <input type="text" class="form-control" id="datetimepicker1" onblur="cambia_campos();" name="datetimepicker1" value=""/>
+                                                                <input type="text" class="form-control" id="fecha_hidden" name="fecha_hidden" value="" required="required"/>
                                                                 <link rel="stylesheet" type="text/css" href="../../../../datepicker/jquery.datetimepicker.css"/>
                                                                 <script src="../../../../datepicker/jquery.js"></script>
                                                                 <script src="../../../../datepicker/jquery.datetimepicker.full.js"></script>

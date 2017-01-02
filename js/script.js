@@ -143,7 +143,16 @@ function GrabarDatos_bl_Ini() {
     return false;
 }
 
-function Calcular(){
+function cambia_campos() {
+
+    var fecha_asiento = $("#datetimepicker1").val(); 
+//     document.getElementById('datetimepicker1').value ="";
+     document.getElementById('fecha_hidden').value =fecha_asiento;
+     $('#datetimepicker1').attr("disabled", true);
+    
+}
+
+function Calcular() {
     a = parseFloat(document.getElementById('debe').value);
     b = parseFloat(document.getElementById('haber').value);
     if (a > b)
@@ -368,7 +377,7 @@ function reset_campos() {
     $("#valor").val("0.00");
 }
 
-function reset_tab(){
+function reset_tab() {
     var answer = confirm("Deseas cancelar el asiento?")
     if (answer) {//actualizar();
         location.reload();
@@ -376,7 +385,7 @@ function reset_tab(){
     }
 }
 
-function imprimir_balance(){
+function imprimir_balance() {
     var answer = confirm("Desea imprimir el asiento realizado?")
     if (answer) {
         var idlogeo = $("#idlog").val();
@@ -388,7 +397,7 @@ function imprimir_balance(){
     }
 }
 
-function cargacodgrupo(){
+function cargacodgrupo() {
     var miVariableJS = $("#cod_clasetxt").val();
     $.post("./funciones/archivoobtengrupo.php", {"texto": miVariableJS},
     function (respuesta) {
@@ -397,7 +406,7 @@ function cargacodgrupo(){
     cargacodgruponom(miVariableJS);
 }
 
-function cargacodgruponom(){
+function cargacodgruponom() {
     var miVariable = $("#cod_clasetxt").val();
     $.post("./funciones/archivoobtengruponom.php", {"texto": miVariable},
     function (respuest) {
@@ -405,7 +414,7 @@ function cargacodgruponom(){
     });
 }
 
-function cargacodgrupo_sb(){
+function cargacodgrupo_sb() {
     var miVariableJS = $("#cod_clasetxt").val();
     $.post("./funciones/archivoobtensubcuenta.php", {"texto": miVariableJS},
     function (respuesta) {
@@ -414,7 +423,7 @@ function cargacodgrupo_sb(){
     cargacodgruponom_sb(miVariableJS);
 }
 
-function cargacodgruponom_sb(){
+function cargacodgruponom_sb() {
     var miVariable = $("#cod_clasetxt").val();
     $.post("./funciones/archivoobtennombreaux.php", {"texto": miVariable},
     function (respuest) {
@@ -422,7 +431,7 @@ function cargacodgruponom_sb(){
     });
 }
 
-function cargacodgruponom_sbaux(){
+function cargacodgruponom_sbaux() {
     var miVariable = $("#codgrupo").val();
     $.post("./funciones/archivoobtenaux.php", {"texto": miVariable},
     function (respuest) {
@@ -432,44 +441,44 @@ function cargacodgruponom_sbaux(){
 
 
 //varias impre en uno
-function imp_pdf(id){
+function imp_pdf(id) {
 //    var id =this.id;
     var idlogeo = $("#idlog").val();
     var fech_url = $("#fechabi").val();
     var id_asientourl = $("#asiento_num").val();
-    window.open('../documentos/impresiones/'+id+'.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
-    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1'+'&prmlg='+idlogeo);
+    window.open('../documentos/impresiones/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1' + '&prmlg=' + idlogeo);
 }
 //exportacion a excel todos archivos se exportan desde aqui, reciber parametro el nombre del archivo.
-function exp_ex(id){
+function exp_ex(id) {
     var idlogeo = $("#idlog").val();
     var fech_url = $("#fechabi").val();
     var id_asientourl = $("#asiento_num").val();
-    window.open('../documentos/export/'+id+'.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
-    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1'+'&prmlg='+idlogeo);
+    window.open('../documentos/export/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1' + '&prmlg=' + idlogeo);
 }
-function exp_ex_by_cta(id){
+function exp_ex_by_cta(id) {
     var tip_cuentadh = $("#cmp_my").val();
     var idlogeo = $("#idlog").val();
     var fech_url = $("#fechabi").val();
     var id_asientourl = $("#asiento_num").val();
-    window.open('documentos/export/'+id+'.php?link&43&vlink*data=11&cta='+tip_cuentadh+'&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
-    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1'+'&prmlg='+idlogeo);
+    window.open('documentos/export/' + id + '.php?link&43&vlink*data=11&cta=' + tip_cuentadh + '&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1' + '&prmlg=' + idlogeo);
 }
-function exp_wd(id){
+function exp_wd(id) {
     var idlogeo = $("#idlog").val();
     var fech_url = $("#fechabi").val();
     var id_asientourl = $("#asiento_num").val();
-    window.open('../documentos/export/'+id+'.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
-    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1'+'&prmlg='+idlogeo);
+    window.open('../documentos/export/' + id + '.php?link&43&vlink*data=11&key=00.001u_link&423&vlink*data_ky=121&key=00.002\n\
+    u_link&413&vlink*data_kykwww=121&key=00.003&idlogeo=' + idlogeo + '&year=2010&fechaurl=' + fech_url + '&i=' + id_asientourl + '&1=1' + '&prmlg=' + idlogeo);
 }
 
 //root
-function rr_add_trs(ass, y, m, d, bl) { 
+function rr_add_trs(ass, y, m, d, bl) {
     var datetimepicker1 = $("#datetimepicker1").val();
     var resultado = document.getElementById('caja');
     ajax = objetoAjax();
-    ajax.open('GET', '../r_paginascont/new_trs.php?y=' + y + "&m=" + m + "&d=" + d + "&ass=" + ass + "&bl=" + bl+"&f="+datetimepicker1, true);
+    ajax.open('GET', '../r_paginascont/new_trs.php?y=' + y + "&m=" + m + "&d=" + d + "&ass=" + ass + "&bl=" + bl + "&f=" + datetimepicker1, true);
     ajax.onreadystatechange = function () {
         if (ajax.readyState == 4) {
             resultado.innerHTML = ajax.responseText;
