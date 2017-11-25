@@ -110,9 +110,9 @@ if ($resultc) {
         $ccass = $rowc['con'];
     }
 }
-$vaciar_num_asientos="truncate num_asientos";
+$vaciar_num_asientos="truncate num_asientos;";
 mysqli_query($c, $vaciar_num_asientos);
-$vaciar_t_ejercicio="truncate t_ejercicio";
+$vaciar_t_ejercicio="truncate t_ejercicio;";
 mysqli_query($c, $vaciar_t_ejercicio);
 $insertasientoconcepto = "INSERT INTO `condata`.`num_asientos` (`idnum_asientos` ,`fecha` ,`concepto` , "
         . "`t_bl_inicial_idt_bl_inicial`, `t_ejercicio_idt_corrientes`, mes,year,saldodebe,saldohaber)VALUES "
@@ -144,9 +144,9 @@ for ($i = 0; $i < count($_POST['campo6']); $i++) {
 }
 
 
-$vaciar_libro="truncate libro";
-$vaciar_num_asientos_ajustes="truncate num_asientos_ajustes";
-$vaciar_t_ejercicio="truncate ajustesejercicio";
+$vaciar_libro="truncate libro;";
+$vaciar_num_asientos_ajustes="truncate num_asientos_ajustes;";
+$vaciar_t_ejercicio="truncate ajustesejercicio;";
 mysqli_query($c, $vaciar_libro);
 mysqli_query($c, $vaciar_num_asientos_ajustes);
 mysqli_query($c, $vaciar_t_ejercicio);
