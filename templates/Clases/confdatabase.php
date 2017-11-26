@@ -141,20 +141,20 @@ SELECT sb.cod_subcuenta as codigo, sb.nombre_subcuenta as cuenta, SUM(deudor) as
  sleep(1);
 
 $c_er="CREATE VIEW estadoresultados AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacionestres` WHERE codigo>'3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo>'3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionestres` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionestres` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo>'3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
  $r_er = mysqli_query($conn, $c_er) or trigger_error("Query Failed! SQL: $c_er - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 
 $c_sf="CREATE VIEW situacionfinal AS 
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacionsfnl` WHERE codigo<='3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_deudor` , 0 )) - ( coalesce( `s_acreedor` , 0 ))  AS total,contabilidad,year,mes, fecha  FROM `sumatoriadeagrupacion` WHERE codigo<='3.9.99.999.' GROUP by codigo HAVING `s_deudor` > `s_acreedor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionsfnl` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,(coalesce( `s_acreedor` , 0 )) - ( coalesce( `s_deudor` , 0 ))  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` > `s_deudor`
 UNION
-SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacionsfnl` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
+SELECT codigo,cuenta,`s_deudor`,`s_acreedor`,concat('0,00')  AS total,contabilidad,year,mes,fecha  FROM `sumatoriadeagrupacion` where codigo<='3.9.99.999.' GROUP by codigo HAVING `s_acreedor` = `s_deudor`";
  $r_sf = mysqli_query($conn, $c_sf) or trigger_error("Query Failed! SQL: $c_sf - Error: ".mysqli_error($conn),E_USER_ERROR);
  sleep(1);
 
